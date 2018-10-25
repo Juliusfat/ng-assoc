@@ -12,6 +12,11 @@ export class EventService {
 
   constructor( private apiService : ApiService) { }
 
+/**
+ * add a new event 
+ * @param { Event} event
+ * @returns Observable<Event>  
+ */
 
 addEvent(event :Event) : Observable<Event> {
   return this.apiService.http.post<Event>(environment.apiUrl, {
@@ -24,14 +29,31 @@ addEvent(event :Event) : Observable<Event> {
    })
 }
 
+/**
+ * retrieves the list of events
+ * @return Observable<Event>
+ */
+
 getListEvents() :Observable<Event[]>{
   return this.apiService.http.get<Event[]>(environment.apiUrl);
 }
+
+/**
+ * delete one event with its id
+ * @param {string} id
+ * @returns Observable<Event>
+ */
 
 deleteEvent( id : string) :Observable<Event>{
   return this.apiService.http.delete<Event>(environment.apiUrl + '/' + id);
 
 } 
+
+/**
+ * 
+ * @param {string} id
+ * @returns Observable<Event> 
+ */
 
 getEventById( id : string ) : Observable<Event>{
   return this.apiService.http.get<Event>(environment.apiUrl + '/' + id);
