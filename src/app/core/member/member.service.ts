@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, catchError } from 'rxjs/operators';
 import { Member } from './member.model';
 import { ApiService } from '../api/api.service';
 import { environment } from '../../../environments/environment';
@@ -81,6 +81,28 @@ export class MemberService {
    */
   getMembers(): Observable<Member[]> {
     return this.api.http.get<Member[]>(this.apiURL);
+  }
+
+  /**
+   * Returning a user according to her/his id
+   * @param id 
+   * @returns Observable<Member|null>
+   */
+  getMemberById(id:string): Observable<Member|null> {
+    return this.api.http.get<Member>(`${this.apiURL}/${id}`).pipe(
+      catchError(err => of(null))
+    );
+  }
+
+  /**
+   * Update a user according to her/his id
+   * @param id 
+   * @param modifications 
+   */
+  updateUserById(id:string, modifications:{ [prop:string]:any }) : Observable<Member|null> {
+    return this.api.http.patch<Member>(`${this.apiURL}/${id}`, modifications).pipe(
+      catchError(() => of(null))
+    );
   }
 
   /**
