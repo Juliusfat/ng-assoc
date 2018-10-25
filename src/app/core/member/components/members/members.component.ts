@@ -4,6 +4,7 @@ import { MemberService } from '../../member.service';
 import { Observable, of } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
+// By GJK
 @Component({
   selector: 'app-members',
   templateUrl: './members.component.html',
@@ -11,8 +12,7 @@ import { finalize } from 'rxjs/operators';
 })
 export class MembersComponent implements OnInit {
   private isLoaded : boolean = false;
-  private members : Observable<any[]>;
-  // private members : Observable<Member[]>;
+  private members : Observable<Member[]>;
 
   constructor(private memberService : MemberService) { }
 
@@ -20,16 +20,22 @@ export class MembersComponent implements OnInit {
     this.getMembers();
   }
 
-  getMembers():void {
+  /**
+   * Get all members to display.
+   */
+  getMembers() : void {
     this.isLoaded = false;
-    this.members = of([{"firstname":"G", "lastname":"JK"}, {"firstname":"G", "lastname":"DB"}, {"firstname":"C", "lastname":"PL"}]);
-    this.isLoaded = true
-    // this.members = this.memberService.getMembers().pipe(finalize( () => this.isLoaded = true));
+    this.members = this.memberService.getMembers().pipe(finalize( () => this.isLoaded = true));
   }
-
-  deleteMember(id : string) {
-    console.log("Suppression du membre ID " + id);
-    // this.memberService.deleteMember(id);
+  
+  /**
+   * Delete a member according to his/her id.
+   * @param { string } id
+   */
+  deleteMember(id : string) : void {
+    this.memberService.deleteMember(id).then(() => {
+      this.members = this.memberService.getMembers().pipe(finalize( () => this.isLoaded = true));
+    });
   }
 
 }
