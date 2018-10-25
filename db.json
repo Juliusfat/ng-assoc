@@ -85,8 +85,10 @@
       "firstname": "Michel",
       "lastname": "Mich",
       "email": "michmich@provider.net",
-      "password": 123456,
-      "role": ["ADMIN"]
+      "password": "123456",
+      "role": [
+        "ADMIN"
+      ]
     }
   ],
   "events": [
