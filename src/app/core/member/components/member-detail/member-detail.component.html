@@ -1,0 +1,15 @@
+<div>
+  <h2>Détail du membre</h2>
+
+  <div>
+    <p>ID : {{ member.id }}</p>
+    <p>Prénom : {{ member.firstname }}</p>
+    <p>Nom : {{ member.lastname }}</p>
+    <p>E-mail : {{ member.email }}</p>
+    <p>Rôle : {{ member.role }}</p>
+  </div>
+  
+  <button routerLink="/edit-member">Modifier</button>
+  <button (click)="deleteMember(member.id)">Supprimer</button>
+  <button routerLink="/">Retour</button>
+</div>
