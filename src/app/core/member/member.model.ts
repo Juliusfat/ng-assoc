@@ -3,6 +3,7 @@ export enum Role {
 }
 
 export class Member {
+    id: string;
     firstname : string;
     lastname : string;
     email : string;
