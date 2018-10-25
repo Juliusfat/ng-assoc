@@ -7,4 +7,5 @@ export class Member {
     lastname : string;
     email : string;
     role : Array<Role>;
+    password: string | null;
 }

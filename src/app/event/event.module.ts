@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { EventRootingModule } from './event-rooting.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    EventRootingModule
   ],
   declarations: []
 })
