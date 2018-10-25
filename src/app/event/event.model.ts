@@ -8,4 +8,8 @@ export class Event {
     capacity : number;
     participants : Array<Member>;
     location : string;
+
+    constructor() {
+        this.date = new Date();
+    }
 }
