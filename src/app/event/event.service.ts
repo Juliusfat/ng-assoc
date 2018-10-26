@@ -21,6 +21,7 @@ export class EventService {
 
 addEvent(event :Event) : Observable<Event> {
   return this.apiService.http.post<Event>(this.apiEvent, {
+    "id": event.id,
     "title" : event.title,
     "date" : event.date,
     "duration" : event.duration,

@@ -98,7 +98,7 @@
       "participants": [],
       "capacity": 27,
       "location": "594 Oceanview Avenue, Bergoo, Wyoming, 8392",
-      "date": "2018-10-31T01:02:35 -01:00",
+      "date": "2018-10-31T01:02:35",
       "duration": 4
     },
     {
@@ -107,7 +107,7 @@
       "participants": [],
       "capacity": 17,
       "location": "421 Classon Avenue, Nettie, Rhode Island, 3873",
-      "date": "2018-12-09T08:00:37 -01:00",
+      "date": "2018-12-09T08:00:37",
       "duration": 1
     },
     {
@@ -116,7 +116,7 @@
       "participants": [],
       "capacity": 49,
       "location": "734 Quay Street, Westerville, Colorado, 5467",
-      "date": "2019-01-06T03:26:09 -01:00",
+      "date": "2019-01-06T03:26:09",
       "duration": 3
     },
     {
@@ -125,7 +125,7 @@
       "participants": [],
       "capacity": 15,
       "location": "801 Rodney Street, Enetai, Minnesota, 7175",
-      "date": "2018-12-06T07:40:29 -01:00",
+      "date": "2018-12-06T07:40:29",
       "duration": 2
     },
     {
@@ -134,7 +134,7 @@
       "participants": [],
       "capacity": 13,
       "location": "347 Humboldt Street, Kersey, Massachusetts, 3400",
-      "date": "2019-01-01T11:50:46 -01:00",
+      "date": "2019-01-01T11:50:46",
       "duration": 1
     },
     {
@@ -143,7 +143,7 @@
       "participants": [],
       "capacity": 18,
       "location": "489 Hazel Court, Dixie, Maine, 9299",
-      "date": "2019-01-03T08:09:14 -01:00",
+      "date": "2019-01-03T08:09:14",
       "duration": 3
     },
     {
@@ -152,7 +152,7 @@
       "participants": [],
       "capacity": 35,
       "location": "427 Pershing Loop, Edgar, Washington, 9160",
-      "date": "2019-03-28T07:32:57 -01:00",
+      "date": "2019-03-28T07:32:57",
       "duration": 1
     },
     {
@@ -161,7 +161,7 @@
       "participants": [],
       "capacity": 30,
       "location": "333 Creamer Street, Northridge, Florida, 632",
-      "date": "2019-03-14T06:44:51 -01:00",
+      "date": "2019-03-14T06:44:51",
       "duration": 1
     },
     {
@@ -170,7 +170,7 @@
       "participants": [],
       "capacity": 23,
       "location": "274 Clinton Avenue, Gwynn, American Samoa, 3316",
-      "date": "2019-01-15T04:53:23 -01:00",
+      "date": "2019-01-15T04:53:23",
       "duration": 3
     },
     {
@@ -190,6 +190,24 @@
       "location": "601 Colonial Road, Brambleton, California, 9192",
       "date": "2019-05-08T07:55:40 -02:00",
       "duration": 2
+    },
+    {
+      "id": "a20cc2d3-f5da-450c-bdc6-39b02dd10896",
+      "title": "Balade sur les bords de Seine",
+      "date": "2018-12-20T10:30",
+      "duration": 2,
+      "capacity": 35,
+      "participants": [],
+      "location": "Paris"
+    },
+    {
+      "id": "a2bab4eb-8144-436f-a89f-e3d1d69d5f8b",
+      "title": "Patinoire et marché de Noël",
+      "date": "2018-12-19T15:00",
+      "duration": 2,
+      "capacity": 25,
+      "participants": [],
+      "location": "Lille"
     }
   ]
 }
