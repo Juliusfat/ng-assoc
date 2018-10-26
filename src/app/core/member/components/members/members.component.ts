@@ -12,7 +12,7 @@ import { finalize } from 'rxjs/operators';
 })
 export class MembersComponent implements OnInit {
   private isLoaded : boolean = false;
-  private members : Observable<Member[]>;
+  public members : Observable<Member[]>;
 
   constructor(private memberService : MemberService) { }
 
