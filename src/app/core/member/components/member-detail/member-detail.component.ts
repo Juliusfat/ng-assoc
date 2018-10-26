@@ -15,7 +15,8 @@ export class MemberDetailComponent implements OnInit {
   constructor(private memberService : MemberService, private router : Router) { }
 
   ngOnInit() {
-    this.member = this.memberService.getMemberById();
+    // TODO
+    this.member = this.memberService.getMemberById("");
   }
 
   /**
