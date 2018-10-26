@@ -1,0 +1,21 @@
+<div>
+  <h2>Liste des Membres</h2>
+
+  <ul>
+    <li *ngFor="let member of members | async">
+      <p>
+        {{ member.id }} - 
+        {{ member.firstname }} {{ member.lastname }} - 
+        {{ member.email }} - 
+        {{ member.role }}
+      </p>
+      <p>
+        <a [routerLink]="['members', member.id]">Détail</a>
+        <a [routerLink]="['members', member.id, 'edit']">Modifier</a>
+        <button (click)="deleteMember(member.id)">Supprimer</button>
+      </p>
+    </li>
+  </ul>
+  
+  <a routerLink="/add-member">Ajouter un membre</a>
+</div>
