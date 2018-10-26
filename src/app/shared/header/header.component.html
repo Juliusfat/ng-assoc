@@ -1,6 +1,13 @@
 <header>
-  <h1>
-    <a href="/" routerLink='/'>{{ title }}</a>
-  </h1>
-  <ng-content></ng-content>
+  <h1> <a href="/" routerLink='/'>{{ title }}</a> </h1>
+  <nav>
+    <ng-container *ngIf='currentUser'>
+      <a href='' routerLink='/events'>Évènements</a>
+      <a href='' routerLink='/members'>Members</a>
+      <button (click)='logout()'>Logout</button>
+    </ng-container>
+    <ng-container *ngIf='!currentUser'>      
+      <a href='' routerLink='/login'>Login</a>
+    </ng-container>
+  </nav>
 </header>

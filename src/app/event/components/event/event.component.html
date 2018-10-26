@@ -1,25 +1,16 @@
-<div *ngIf="event">
-  <h2>Evenements : {{event.id}}</h2>
+<ng-container *ngIf='!error && (event$ | async) as event'>
+  <h2>{{ event.title }}</h2>
+  <p>Lieu : {{ event.location }}</p>
+  <p>Date : {{ event.date }}</p>
+  <p>Duration: {{ event.duration }}</p>
+  <p>Nombre de places disponibles : {{ event.capacity }} places</p>
+  <p></p>
+</ng-container>
 
-  <div>
-    <p>
-      évenement : {{ event.title }}
-    </p>
-    <p> 
-      durée : {{ event.duration }}
-    </p>
-    <p> 
-      date : {{ event.date }}
-    </p>
-    <p> 
-      nombre de participant max : {{ event.capacity }}
-    </p>
-    <p> 
-      lieu : {{ event.location }}
-    </p>
-    <p>
-      <button (click)="deleteMember(member.id)">Supprimer</button>
-    </p>
-  </div>
-   <a routerLink="/events">Retour</a>
-</div>
+<ng-container *ngIf='loading'>
+  <p>Loading event. Please wait...</p>
+</ng-container>
+
+<ng-container *ngIf='error'>
+  <p>{{ error }}</p>
+</ng-container>
