@@ -15,9 +15,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RouterModule,
     FormsModule,
     ReactiveFormsModule
+  ],  
+  declarations: [
+    MembersComponent, 
+    MemberDetailComponent, 
+    MemberAddComponent, 
+    MemberEditComponent, 
+    MemberLoginComponent
   ],
-  exports:[MembersComponent, MemberDetailComponent, MemberAddComponent, MemberEditComponent],
-  declarations: [MembersComponent, MemberDetailComponent, MemberAddComponent, MemberEditComponent, MemberLoginComponent],
   providers: [MemberService]
 })
 export class MemberModule { }

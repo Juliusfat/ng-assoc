@@ -14,19 +14,14 @@ import { EventService } from '../../event.service';
   styleUrls: ['./event.component.css']
 })
 export class EventComponent implements OnInit {
-  private event : Event;
-  private id : string;
-  private sub : any;
   
   constructor(private route:ActivatedRoute, private eventservice:EventService) { }
 
-  event$:Observable<Event>;
-  loading:boolean = false;
+  event$:Observable<Event>;  
   error:string;
   id:string;
 
-  ngOnInit() {    
-    this.loading = true;
+  ngOnInit() {        
     // Assigning the observable to the variable (subscription in the template)
     this.event$ = this.route.params.pipe(
       // Get the value of the id params
@@ -37,9 +32,7 @@ export class EventComponent implements OnInit {
       catchError((err) => {        
         this.error = `Une erreur est survenue lors de la récupération de l'event portant l'ID ${this.id}`                
         return of(err)
-      }),
-      // Eventually, loading is done...
-      finalize(() => this.loading = false)      
+      })    
     )
 
   }

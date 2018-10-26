@@ -11,11 +11,10 @@
       </p>
       <p>
         <a [routerLink]="[event.id]">Détail</a>
-        <a [routerLink]="['', event.id, 'edit']">Modifier</a>
-        <button (click)="deleteMember(member.id)">Supprimer</button>
+        <a [routerLink]="['/events', event.id, 'edit']">Modifier</a>        
       </p>
     </li>
   </ul>
   
-  <a routerLink="/add-event">Ajouter un évenement</a>
+  <a routerLink="/events/add">Ajouter un évenement</a>
 </div>
