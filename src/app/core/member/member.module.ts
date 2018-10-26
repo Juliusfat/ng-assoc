@@ -6,11 +6,13 @@ import { MemberDetailComponent } from './components/member-detail/member-detail.
 import { MemberAddComponent } from './components/member-add/member-add.component';
 import { MemberEditComponent } from './components/member-edit/member-edit.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports:[MembersComponent, MemberDetailComponent, MemberAddComponent, MemberEditComponent],
   declarations: [MembersComponent, MemberDetailComponent, MemberAddComponent, MemberEditComponent],

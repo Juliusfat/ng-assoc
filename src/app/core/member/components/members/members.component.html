@@ -1,3 +1,4 @@
+<!-- By GJK -->
 <div>
   <h2>Liste des Membres</h2>
 
@@ -10,12 +11,12 @@
         {{ member.role }}
       </p>
       <p>
-        <a [routerLink]="['members', member.id]">Détail</a>
-        <a [routerLink]="['members', member.id, 'edit']">Modifier</a>
+        <a [routerLink]="[member.id]">Détail</a>
+        <a [routerLink]="[member.id, 'edit']">Modifier</a>
         <button (click)="deleteMember(member.id)">Supprimer</button>
       </p>
     </li>
   </ul>
   
-  <a routerLink="/add-member">Ajouter un membre</a>
+  <a [routerLink]="['add']">Ajouter un membre</a>
 </div>

@@ -1,22 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { MemberService } from '../../member.service';
-import { Observable } from 'rxjs';
 import { Member } from '../../member.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
+// By GJK
 @Component({
   selector: 'app-member-detail',
   templateUrl: './member-detail.component.html',
   styleUrls: ['./member-detail.component.css']
 })
 export class MemberDetailComponent implements OnInit {
-  private member : Observable<Member>;
+  member : Member = new Member();
+  private id : string;
 
-  constructor(private memberService : MemberService, private router : Router) { }
+  constructor(private memberService : MemberService, private router : Router, private route : ActivatedRoute) { }
 
   ngOnInit() {
-    // TODO
-    this.member = this.memberService.getMemberById("");
+    this.route.params.subscribe(params => {
+      this.id = params['id']; // Get ID from URL.
+      this.memberService.getMemberById(this.id).subscribe(member => {
+        this.member = member;
+      });
+    });
   }
 
   /**

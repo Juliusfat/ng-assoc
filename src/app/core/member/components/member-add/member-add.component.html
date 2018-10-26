@@ -1,3 +1,13 @@
-<p>
-  member-add works!
-</p>
+<!-- By GJK -->
+<div>
+  <h2>Ajout d'un membre</h2>
+
+  <div>
+    <p><label for="firstname">Prénom : </label><input type="text" name="firstname" id="firstname" [(ngModel)]="firstname" required></p>
+    <p><label for="lastname">Nom : </label><input type="text" name="lastname" id="lastname" [(ngModel)]="lastname" required></p>
+    <p><label for="email">E-mail : </label><input type="email" name="email" id="email" [(ngModel)]="email" required></p>
+  </div>
+  
+  <button (click)="addMember()">Ajouter</button>
+  <a routerLink="/members">Retour</a>
+</div>
