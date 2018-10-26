@@ -7,6 +7,7 @@ const ROUTES:Routes = [
   { path:'', pathMatch:'full', redirectTo:'events' },
   { path:'members', children: [
     { path:'', component: MembersComponent },
+    // { path:'add', component: },
     { path:':id', component: MemberDetailComponent }
   ] },
   { path:'events', loadChildren: '../event/event.module#EventModule' }
