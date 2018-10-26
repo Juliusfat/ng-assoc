@@ -1,24 +1,26 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { switchMap, catchError } from 'rxjs/operators';
-import { Member } from './member.model';
+import { Member, Role } from './member.model';
 import { ApiService } from '../api/api.service';
 import { environment } from '../../../environments/environment';
 import { HttpParams } from '@angular/common/http';
 import { v4 as uuid } from 'uuid';
+import { CanActivate } from '@angular/router';
+import { Router } from '@angular/router';
 
 // by Guillaume Deblock
 
 @Injectable({
   providedIn: 'root'
 })
-export class MemberService {
+export class MemberService implements CanActivate {
   
   private apiURL:string = `${environment.apiUrl}/members`;
   currentUser: BehaviorSubject<Member> = new BehaviorSubject<Member>(null);
   currentUser$: Observable<Member> = this.currentUser.asObservable();
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private router:Router) { }
 
   /**
    * Get user for a specified email of null
@@ -50,14 +52,23 @@ export class MemberService {
         reject('Please specify email and password');
       }
       this.getMemberByEmail(email).subscribe((result:Member|null) => {
-        if (result) {          
+        // If the user is not null, then...
+        if (result) {
+          // If the user doesn't have the role ADMIN, deny access.
+          if (result.role.indexOf(Role.ADMIN) === -1) {
+            reject(`Vous n'avez pas les droits nécessaires pour accéder à l'application`);
+          }        
+          // Checking password equality to log the user in.
           if (result.password === password) {
+            // Log the user in
             this.currentUser.next(result);
             resolve(result);
           } else {
+            // Invalid password.
             reject('Mot de passe invalide.');
           }
         } else {
+          // No match for the given email...
           reject(`Aucun membre avec correspondant à l'email ${email}.`);
         }
       })
@@ -137,4 +148,15 @@ export class MemberService {
     
   }
 
+  /**
+   * Returns false and redirect is the user not logged in. Return true in case she/he is.
+   * @returns boolean
+   */
+  canActivate(): boolean {
+    let isLoggedIn = this.currentUser.value ? true : false;
+    if (!isLoggedIn) {
+      this.router.navigate(['/login'])      
+    } 
+    return isLoggedIn;
+  }
 }
