@@ -1,3 +1,25 @@
-<p>
-  event works!
-</p>
+<div *ngIf="event">
+  <h2>Evenements : {{event.id}}</h2>
+
+  <div>
+    <p>
+      évenement : {{ event.title }}
+    </p>
+    <p> 
+      durée : {{ event.duration }}
+    </p>
+    <p> 
+      date : {{ event.date }}
+    </p>
+    <p> 
+      nombre de participant max : {{ event.capacity }}
+    </p>
+    <p> 
+      lieu : {{ event.location }}
+    </p>
+    <p>
+      <button (click)="deleteMember(member.id)">Supprimer</button>
+    </p>
+  </div>
+   <a routerLink="/events">Retour</a>
+</div>

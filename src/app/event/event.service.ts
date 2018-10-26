@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EventService {
+  private apiEvent : string = environment.apiUrl + '/events';
 
   constructor( private apiService : ApiService) { }
 
@@ -19,7 +20,7 @@ export class EventService {
  */
 
 addEvent(event :Event) : Observable<Event> {
-  return this.apiService.http.post<Event>(environment.apiUrl, {
+  return this.apiService.http.post<Event>(this.apiEvent, {
     "title" : event.title,
     "date" : event.date,
     "duration" : event.duration,
@@ -35,7 +36,7 @@ addEvent(event :Event) : Observable<Event> {
  */
 
 getListEvents() :Observable<Event[]>{
-  return this.apiService.http.get<Event[]>(environment.apiUrl);
+  return this.apiService.http.get<Event[]>(this.apiEvent);
 }
 
 /**
@@ -45,18 +46,18 @@ getListEvents() :Observable<Event[]>{
  */
 
 deleteEvent( id : string) :Observable<Event>{
-  return this.apiService.http.delete<Event>(environment.apiUrl + '/' + id);
+  return this.apiService.http.delete<Event>(this.apiEvent + '/' + id);
 
 } 
 
 /**
- * 
+ * get one event with its id
  * @param {string} id
  * @returns Observable<Event> 
  */
 
 getEventById( id : string ) : Observable<Event>{
-  return this.apiService.http.get<Event>(environment.apiUrl + '/' + id);
+  return this.apiService.http.get<Event>(this.apiEvent + '/' + id);
 }
 
 }
