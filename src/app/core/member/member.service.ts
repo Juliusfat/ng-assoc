@@ -153,6 +153,8 @@ export class MemberService implements CanActivate {
    * @returns boolean
    */
   canActivate(): boolean {
+    // for developement purpope...
+    return true;
     let isLoggedIn = this.currentUser.value ? true : false;
     if (!isLoggedIn) {
       this.router.navigate(['/login'])      
