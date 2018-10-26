@@ -7,13 +7,17 @@ import { EventService } from '../../event.service';
 
 // by Guillaume
 
+
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
   styleUrls: ['./event.component.css']
 })
 export class EventComponent implements OnInit {
-
+  private event : Event;
+  private id : string;
+  private sub : any;
+  
   constructor(private route:ActivatedRoute, private eventservice:EventService) { }
 
   event$:Observable<Event>;
@@ -37,6 +41,7 @@ export class EventComponent implements OnInit {
       // Eventually, loading is done...
       finalize(() => this.loading = false)      
     )
+
   }
 
 }
