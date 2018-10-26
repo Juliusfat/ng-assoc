@@ -2,13 +2,9 @@
   <h2>{{ event.title }}</h2>
   <p>Lieu : {{ event.location }}</p>
   <p>Date : {{ event.date }}</p>
-  <p>Duration: {{ event.duration }}</p>
+  <p>Durée : {{ event.duration }} heure{{event.duration > 1 ? "s" : ""}}</p>
   <p>Nombre de places disponibles : {{ event.capacity }} places</p>
   <p></p>
-</ng-container>
-
-<ng-container *ngIf='loading'>
-  <p>Loading event. Please wait...</p>
 </ng-container>
 
 <ng-container *ngIf='error'>

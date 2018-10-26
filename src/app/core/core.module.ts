@@ -5,6 +5,7 @@ import { ApiService } from './api/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module'
 import { MemberModule } from './member/member.module'
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   imports: [
@@ -14,8 +15,8 @@ import { MemberModule } from './member/member.module'
     SharedModule,
     MemberModule
   ],
-  exports:[CoreRootingModule, HttpClientModule, SharedModule],  
+  exports:[CoreRootingModule, HttpClientModule, SharedModule, HeaderComponent],  
   providers:[ ApiService ],
-  declarations: []
+  declarations: [HeaderComponent]
 })
 export class CoreModule { }

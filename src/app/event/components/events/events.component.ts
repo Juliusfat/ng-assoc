@@ -9,7 +9,7 @@ import { Event } from '../../event.model';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  private events : Event[];
+  public events : Event[];
 
   constructor( private eventService : EventService) { }
 

@@ -10,9 +10,8 @@
         {{ member.role }}
       </p>
       <p>
-        <a [routerLink]="['members', member.id]">Détail</a>
-        <a [routerLink]="['members', member.id, 'edit']">Modifier</a>
-        <button (click)="deleteMember(member.id)">Supprimer</button>
+        <a [routerLink]="['/members', member.id]">Détail</a>
+        <a [routerLink]="['/members', member.id, 'edit']">Modifier</a>        
       </p>
     </li>
   </ul>
