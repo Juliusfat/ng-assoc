@@ -12,7 +12,7 @@ export class EventParticipantsComponent implements OnInit, OnDestroy {
 
   protected _participants:Member[] = [];
   protected non_participants:Member[] = [];
-  private sub:Subscription = new Subscription()
+  private sub:Subscription = new Subscription();
 
   @Output() 
   updateParticipants: EventEmitter<Member[]> = new EventEmitter<Member[]>();
@@ -56,7 +56,7 @@ export class EventParticipantsComponent implements OnInit, OnDestroy {
    * @param { Member } member 
    */
   addParticipantToEvent(member:Member): void {
-    if (this._participants.length + 1 <= this.max) {
+    if (this.max === 0 || this._participants.length + 1 <= this.max) {
       this._participants = [...this._participants, member];
       this.non_participants = this.non_participants.filter((m:Member) => m !== member);
       // Emit the new list to the event component, which updates.
@@ -72,10 +72,6 @@ export class EventParticipantsComponent implements OnInit, OnDestroy {
     this._participants = this._participants.filter((m:Member) => member !== m);
     this.non_participants.unshift(member);
     // Emit the new list to the event component, which updates.
-    this.emitParticipants();
-  }
-
-  emit () {
     this.emitParticipants();
   }
 
