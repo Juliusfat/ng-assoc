@@ -95,11 +95,36 @@
     {
       "title": "Event n° 1",
       "id": "cf3992e3-b82a-45fb-bfce-778585c06a6e",
-      "participants": [],
-      "capacity": 27,
+      "participants": [
+        {
+          "id": "e6cc145c-95ea-442a-92b9-1980c009352f",
+          "firstname": "Pugh",
+          "lastname": "Bryant",
+          "email": "pughbryant@centice.com",
+          "password": null,
+          "role": []
+        },
+        {
+          "id": "84a21060-9c33-4377-bd50-5033b277ed8a",
+          "firstname": "Eddie",
+          "lastname": "Morse",
+          "email": "eddiemorse@centice.com",
+          "password": null,
+          "role": []
+        },
+        {
+          "id": "7d7e4c2d-704e-4dc4-a709-b3f9abf43351",
+          "firstname": "Elsie",
+          "lastname": "Shields",
+          "email": "elsieshields@centice.com",
+          "password": null,
+          "role": []
+        }
+      ],
+      "capacity": 4,
       "location": "594 Oceanview Avenue, Bergoo, Wyoming, 8392",
-      "date": "2018-10-31T01:02:35 -01:00",
-      "duration": 4
+      "date": "2018-10-31T18:20",
+      "duration": 2
     },
     {
       "title": "Event n° 2",
@@ -107,25 +132,59 @@
       "participants": [],
       "capacity": 17,
       "location": "421 Classon Avenue, Nettie, Rhode Island, 3873",
-      "date": "2018-12-09T08:00:37 -01:00",
+      "date": "2018-12-09T08:00:37",
       "duration": 1
     },
     {
       "title": "Event n° 3",
       "id": "a3e995d0-695a-43d4-ba8f-2fb37a7be356",
-      "participants": [],
-      "capacity": 49,
+      "participants": [
+        {
+          "id": "b259e392-ccca-438a-ba95-e68c97c733d7",
+          "firstname": "Lauren",
+          "lastname": "Barry",
+          "email": "laurenbarry@centice.com",
+          "password": null,
+          "role": []
+        },
+        {
+          "id": "7d7e4c2d-704e-4dc4-a709-b3f9abf43351",
+          "firstname": "Elsie",
+          "lastname": "Shields",
+          "email": "elsieshields@centice.com",
+          "password": null,
+          "role": []
+        }
+      ],
+      "capacity": 3,
       "location": "734 Quay Street, Westerville, Colorado, 5467",
-      "date": "2019-01-06T03:26:09 -01:00",
+      "date": "2019-01-06T03:26:09",
       "duration": 3
     },
     {
       "title": "Event n° 4",
       "id": "e5231147-a78b-419b-aa32-44b676258e26",
-      "participants": [],
-      "capacity": 15,
+      "participants": [
+        {
+          "id": "7d7e4c2d-704e-4dc4-a709-b3f9abf43351",
+          "firstname": "Elsie",
+          "lastname": "Shields",
+          "email": "elsieshields@centice.com",
+          "password": null,
+          "role": []
+        },
+        {
+          "id": "b259e392-ccca-438a-ba95-e68c97c733d7",
+          "firstname": "Lauren",
+          "lastname": "Barry",
+          "email": "laurenbarry@centice.com",
+          "password": null,
+          "role": []
+        }
+      ],
+      "capacity": 0,
       "location": "801 Rodney Street, Enetai, Minnesota, 7175",
-      "date": "2018-12-06T07:40:29 -01:00",
+      "date": "2018-12-06T07:40:29",
       "duration": 2
     },
     {
@@ -134,43 +193,77 @@
       "participants": [],
       "capacity": 13,
       "location": "347 Humboldt Street, Kersey, Massachusetts, 3400",
-      "date": "2019-01-01T11:50:46 -01:00",
+      "date": "2019-01-15T11:50:46",
       "duration": 1
     },
     {
-      "title": "Event n° 6",
+      "title": "Visite du zoo de Lille",
       "id": "d397bbb8-a1d1-47b2-8d34-24a34faceb50",
       "participants": [],
-      "capacity": 18,
-      "location": "489 Hazel Court, Dixie, Maine, 9299",
-      "date": "2019-01-03T08:09:14 -01:00",
-      "duration": 3
+      "capacity": 16,
+      "location": "59000 Lille",
+      "date": "2019-01-03T09:30",
+      "duration": 2
     },
     {
       "title": "Event n° 7",
       "id": "fd90baa6-c662-40af-99b5-bc7131116929",
-      "participants": [],
-      "capacity": 35,
+      "participants": [
+        {
+          "id": "7d7e4c2d-704e-4dc4-a709-b3f9abf43351",
+          "firstname": "Elsie",
+          "lastname": "Shields",
+          "email": "elsieshields@centice.com",
+          "password": null,
+          "role": []
+        },
+        {
+          "id": "760b26df-d58e-4d07-a3d4-4c219a866614",
+          "firstname": "Rodriguez",
+          "lastname": "Flowers",
+          "email": "rodriguezflowers@centice.com",
+          "password": null,
+          "role": []
+        }
+      ],
+      "capacity": 7,
       "location": "427 Pershing Loop, Edgar, Washington, 9160",
-      "date": "2019-03-28T07:32:57 -01:00",
+      "date": "2019-03-28T07:32:57",
       "duration": 1
     },
     {
       "title": "Event n° 8",
       "id": "ad148b0b-6e83-4b5e-8c30-be2f7fe21840",
       "participants": [],
-      "capacity": 30,
+      "capacity": 10,
       "location": "333 Creamer Street, Northridge, Florida, 632",
-      "date": "2019-03-14T06:44:51 -01:00",
+      "date": "2019-03-14T06:44:51",
       "duration": 1
     },
     {
       "title": "Event n° 9",
       "id": "974d88bb-21b8-436f-94e1-d5558974253d",
-      "participants": [],
+      "participants": [
+        {
+          "id": "e6cc145c-95ea-442a-92b9-1980c009352f",
+          "firstname": "Pugh",
+          "lastname": "Bryant",
+          "email": "pughbryant@centice.com",
+          "password": null,
+          "role": []
+        },
+        {
+          "id": "f1584ea1-9630-4b43-8d74-cb66cb62c7b8",
+          "firstname": "Hodges",
+          "lastname": "Wolf",
+          "email": "hodgeswolf@centice.com",
+          "password": null,
+          "role": []
+        }
+      ],
       "capacity": 23,
       "location": "274 Clinton Avenue, Gwynn, American Samoa, 3316",
-      "date": "2019-01-15T04:53:23 -01:00",
+      "date": "2019-01-15T04:53:23",
       "duration": 3
     },
     {
@@ -179,17 +272,52 @@
       "participants": [],
       "capacity": 15,
       "location": "887 Aurelia Court, Joppa, West Virginia, 4747",
-      "date": "2019-04-24T05:08:11 -02:00",
+      "date": "2019-04-24T05:08:11",
       "duration": 4
     },
     {
       "title": "Event n° 11",
       "id": "46717820-e418-47fc-a6af-864ef7a89e55",
       "participants": [],
-      "capacity": 14,
+      "capacity": 2,
       "location": "601 Colonial Road, Brambleton, California, 9192",
-      "date": "2019-05-08T07:55:40 -02:00",
+      "date": "2019-05-08T07:55:40",
       "duration": 2
+    },
+    {
+      "id": "a20cc2d3-f5da-450c-bdc6-39b02dd10896",
+      "title": "Balade sur les bords de Seine",
+      "date": "2018-12-20T10:30",
+      "duration": 2,
+      "capacity": 35,
+      "participants": [],
+      "location": "Paris"
+    },
+    {
+      "id": "a2bab4eb-8144-436f-a89f-e3d1d69d5f8b",
+      "title": "Patinoire et marché de Noël",
+      "date": "2018-12-19T15:00",
+      "duration": 2,
+      "capacity": 14,
+      "participants": [
+        {
+          "id": "84a21060-9c33-4377-bd50-5033b277ed8a",
+          "firstname": "Eddie",
+          "lastname": "Morse",
+          "email": "eddiemorse@centice.com",
+          "password": null,
+          "role": []
+        },
+        {
+          "id": "e37f13e7-cce7-4ed1-8729-29344d2001dc",
+          "firstname": "Colon",
+          "lastname": "Blackwell",
+          "email": "colonblackwell@centice.com",
+          "password": null,
+          "role": []
+        }
+      ],
+      "location": "59000 Lille"
     }
   ]
 }

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap, catchError, finalize, tap } from 'rxjs/operators';
+import { switchMap, catchError, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Event } from '../../event.model';
 import { EventService } from '../../event.service';
+import { Member } from '../../../core/member/member.model';
 
 // by Guillaume
-
 
 @Component({
   selector: 'app-event',
@@ -35,6 +35,16 @@ export class EventComponent implements OnInit {
       })    
     )
 
+  }
+
+  /**
+   * On participants change, update the event on server
+   * @param { Array<Member> } participants 
+   */
+  updateParticipants(participants:Member[]): void {    
+    this.event$ = this.eventservice.updateEvent(this.id, { participants }).pipe(
+      switchMap(() => this.eventservice.getEventById(this.id))
+    )        
   }
 
 }

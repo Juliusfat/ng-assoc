@@ -1,13 +1,18 @@
 <!-- By GJK -->
-<div>
+<div class="container">
   <h2>Ajout d'un membre</h2>
 
   <div>
-    <p><label for="firstname">Prénom : </label><input type="text" name="firstname" id="firstname" [(ngModel)]="firstname" required></p>
-    <p><label for="lastname">Nom : </label><input type="text" name="lastname" id="lastname" [(ngModel)]="lastname" required></p>
-    <p><label for="email">E-mail : </label><input type="email" name="email" id="email" [(ngModel)]="email" required></p>
+    <div class="form-group"><label for="firstname">Prénom : </label><input class="form-control" type="text" name="firstname" id="firstname" [(ngModel)]="firstname" required></div>
+    <div class="form-group"><label for="lastname">Nom : </label><input class="form-control" type="text" name="lastname" id="lastname" [(ngModel)]="lastname" required></div>
+    <div class="form-group"><label for="email">E-mail : </label><input class="form-control" type="email" name="email" id="email" [(ngModel)]="email" required></div>
   </div>
-  
+  <div class="nav">
+  <div class="nav-item">
   <button class="btn btn-info" (click)="addMember()">Ajouter</button>
-  <a class="btn btn-danger" routerLink="/members">Retour</a>
+  </div>
+  <div class="nav-item">
+  <a class="nav-link" routerLink="/members">Retour</a>
+  </div>
+  </div>
 </div>
