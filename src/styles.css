@@ -1,15 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
-.bouton{
+button:not([disabled]), 
+input[type=submit]:not([disabled]) {
+    cursor: pointer;
+}
+
+button[disabled],
+input[type=submit][disabled] {
+    cursor: not-allowed;
+}
+
+.bouton {
     background-color: #6DDE93;
     color : rgba(255, 255, 255, 0.938);
     border-radius: 15%;
     padding: 0.5px 15px 0.5px 15px;
 }
 
-.btn{
+.btn {
     margin-right: 4px;
 }
 
-.liste{
+.liste {
     padding : 60px 0 20px 0;
 }

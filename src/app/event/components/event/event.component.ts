@@ -37,8 +37,11 @@ export class EventComponent implements OnInit {
 
   }
 
-  updateParticipants(participants:Member[]): void {
-    console.log(participants);
+  /**
+   * On participants change, update the event on server
+   * @param { Array<Member> } participants 
+   */
+  updateParticipants(participants:Member[]): void {    
     this.event$ = this.eventservice.updateEvent(this.id, { participants }).pipe(
       switchMap(() => this.eventservice.getEventById(this.id))
     )        

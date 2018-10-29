@@ -59,4 +59,10 @@ export class EventEditComponent implements OnInit, OnDestroy {
     }
   }
 
+  deleteEvent(): void {
+    this.eventService.deleteEvent(this.id).subscribe(() => {
+      this.router.navigate(['/events'])
+    })
+  }
+
 }
