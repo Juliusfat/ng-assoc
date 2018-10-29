@@ -9,7 +9,7 @@
     <p><label for="role">Administrateur : </label><input type="checkbox" name="role" id="role" [checked]="isAdmin" (change)="isAdmin = !isAdmin"/></p>
   </div>
   
-  <a [routerLink]="[member.id, 'edit']">Modifier</a>
+  <a [routerLink]="['/members', member.id, 'edit']">Modifier</a>
   <button (click)="deleteMember(member.id)">Supprimer</button>
   <a routerLink="/members">Retour</a>
 </div>
