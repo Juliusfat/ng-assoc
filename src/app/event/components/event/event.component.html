@@ -1,11 +1,21 @@
-<ng-container *ngIf='!error && (event$ | async) as event'>
+<ng-container *ngIf='!error && (event$ | async) as event; else loading'>
   <h2>{{ event.title }}</h2>
   <p>Lieu : {{ event.location }}</p>
-  <p>Date : {{ event.date }}</p>
+  <p>Date : {{ event.date | date:'full' }}</p>
   <p>Durée : {{ event.duration }} heure{{event.duration > 1 ? "s" : ""}}</p>
   <p>Nombre de places disponibles : {{ event.capacity }} places</p>
-  <p></p>
+  <p>Places restantes : {{ event.capacity - event.participants.length }} place{{ event.capacity -
+    event.participants.length > 1 ? 's': '' }} disponible{{ event.capacity - event.participants.length > 1 ? 's': '' }}</p>
+  <app-event-participants 
+    [max]='event.capacity'
+    [participants]='event.participants'
+    (updateParticipants)='updateParticipants($event)'
+  ></app-event-participants>
 </ng-container>
+
+<ng-template #loading>
+  <p>Chargement de l'évènement. Veuillez patienter...</p>
+</ng-template>
 
 <ng-container *ngIf='error'>
   <p>{{ error }}</p>

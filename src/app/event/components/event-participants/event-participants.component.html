@@ -1,0 +1,25 @@
+<ng-container *ngIf='_participants.length'>
+  <h3>Participent</h3>
+  <ul>
+    <li *ngFor='let p of _participants'>
+      {{ p.firstname }} {{ p.lastname }}
+      <button [attr.aria-label]='"Remove "+p.firstname+" "+p.lastname+" from the event"' (click)='removeParticipantToEvent(p)'>
+        Remove from the event
+      </button>
+    </li>
+  </ul>
+</ng-container>
+<ng-container *ngIf='non_participants.length'>
+  <h3>Ne participent pas...</h3>
+  <ul>
+    <li *ngFor='let np of non_participants'>
+      {{ np.firstname }} {{ np.lastname }}
+      <button 
+        [disabled]='_participants.length === max'
+        [attr.aria-label]='"Add "+np.firstname+" "+np.lastname+" to the event"' 
+        (click)='addParticipantToEvent(np)'>
+        Add to the event
+      </button>
+    </li>
+  </ul>
+</ng-container>
