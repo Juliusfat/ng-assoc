@@ -19,7 +19,7 @@ export class MemberAddComponent implements OnInit {
   }
 
   /**
-   * Adding a member.
+   * Adding a member and redirect to members list.
    */
   addMember() : void {
     this.memberService.addMember(this.firstname, this.lastname, this.email);
