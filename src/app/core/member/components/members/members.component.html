@@ -1,20 +1,22 @@
 <!-- By GJK -->
-<div>
-  <h2>Liste des Membres</h2>
+<div class="container">
+  <h2 class="text-center">Liste des Membres</h2>
 
-  <ul>
-    <li *ngFor="let member of members | async">
-      <p>
+  <ul class="liste">
+    
+    <li class="row justify-content-between" *ngFor="let member of members | async">
+      
+      <div class="col-8">
         {{ member.id }} - 
         {{ member.firstname }} {{ member.lastname }} - 
         {{ member.email }} - 
         {{ member.role }}
-      </p>
-      <p>
-        <a [routerLink]="[member.id]">Détail</a>
-        <a [routerLink]="[member.id, 'edit']">Modifier</a>
-        <button (click)="deleteMember(member.id)">Supprimer</button>
-      </p>
+      </div>
+      <div class="col-4">
+        <button class="btn btn-info" [routerLink]="[member.id]">Détail</button>
+        <button class="btn btn-warning" [routerLink]="[member.id, 'edit']">Modifier</button>
+        <button class="btn btn-danger" (click)="deleteMember(member.id)">Supprimer</button>
+      </div>
     </li>
   </ul>
 

@@ -1,12 +1,17 @@
 <ng-container *ngIf='!error && (event$ | async) as event'>
-  <h2>{{ event.title }}</h2>
-  <p>Lieu : {{ event.location }}</p>
-  <p>Date : {{ event.date }}</p>
-  <p>Durée : {{ event.duration }} heure{{event.duration > 1 ? "s" : ""}}</p>
-  <p>Nombre de places disponibles : {{ event.capacity }} places</p>
-  <p></p>
+  <div class="container">
+    <h2 class="text-center">{{ event.title }}</h2>
+    <div class="liste">
+      <p>Lieu : {{ event.location }}</p>
+      <p>Date : {{ event.date }}</p>
+      <p>Durée : {{ event.duration }} heure{{event.duration > 1 ? "s" : ""}}</p>
+      <p>Nombre de places disponibles : {{ event.capacity }} places</p>
+      <p></p>
+      <a routerLink="/events">retour à la liste</a>
+    </div>
+  </div>
 </ng-container>
 
-<ng-container *ngIf='error'>
+<ng-container classs="container" *ngIf='error'>
   <p>{{ error }}</p>
 </ng-container>

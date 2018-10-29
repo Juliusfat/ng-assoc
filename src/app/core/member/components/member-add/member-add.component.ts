@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./member-add.component.css']
 })
 export class MemberAddComponent implements OnInit {
-  private firstname : string;
-  private lastname : string;
-  private email : string;
+  firstname : string;
+  lastname : string;
+  email : string;
 
   constructor(private memberService : MemberService, private router : Router) { }
 

@@ -1,5 +1,7 @@
-<div>
-  <h2>Liste des évenements</h2>
+<div class="container">
+  <h2 class="text-center">Liste des évenements</h2>
+
+  <div class="liste">
 
   <ul>
     <li *ngFor="let event of events">
@@ -10,11 +12,12 @@
         titre : {{ event.title }}
       </p>
       <p>
-        <a [routerLink]="[event.id]">Détail</a>
-        <a [routerLink]="['/events', event.id, 'edit']">Modifier</a>        
+        <a class="btn btn-success" [routerLink]="[event.id]">Détail</a>
+        <a class="btn btn-warning" [routerLink]="['/events', event.id, 'edit']">Modifier</a>        
       </p>
     </li>
   </ul>
   
   <a routerLink="/events/add">Ajouter un évenement</a>
+</div>
 </div>
