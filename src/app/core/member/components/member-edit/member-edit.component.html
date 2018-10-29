@@ -1,14 +1,26 @@
 <!-- By GJK -->
-<div>
+<div class="container">
   <h2>Édition du membre</h2>
 
   <div>
-    <p><label for="firstname">Prénom : </label><input type="text" name="firstname" id="firstname" [(ngModel)]="member.firstname" value="{{ member.firstname }}" required/></p>
-    <p><label for="lastname">Nom : </label><input type="text" name="lastname" id="lastname" [(ngModel)]="member.lastname" value="{{ member.lastname }}" required/></p>
-    <p><label for="email">E-mail : </label><input type="email" name="email" id="email" [(ngModel)]="member.email" value="{{ member.email }}" required/></p>
+    <div class="form-group"><label for="firstname">Prénom : </label><input class="form-control" type="text" name="firstname"
+        id="firstname" [(ngModel)]="member.firstname" value="{{ member.firstname }}" required /></div>
+    <div class="form-group"><label for="lastname">Nom : </label><input class="form-control" type="text" name="lastname"
+        id="lastname" [(ngModel)]="member.lastname" value="{{ member.lastname }}" required /></div>
+    <div class="form-group"><label for="email">E-mail : </label><input class="form-control" type="email" name="email"
+        id="email" [(ngModel)]="member.email" value="{{ member.email }}" required /></div>
+    <div class="form-check"><input class="form-check-input" type="checkbox" name="role" id="role" [checked]="isAdmin"
+        (change)="isAdmin = !isAdmin" /><label class="form-check-label" for="role">Administrateur</label></div>
   </div>
-  
-  <button (click)="updateMember()">Mettre à jour</button>
-  <button (click)="deleteMember()">Supprimer</button>
-  <a routerLink="/members">Retour</a>
+  <div class="nav">
+    <div class="nav-item">
+      <a class="nav-link" [routerLink]="[member.id, 'edit']">Modifier</a>
+    </div>
+    <div class="nav-item">
+      <button class="btn btn-danger" (click)="deleteMember(member.id)">Supprimer</button>
+    </div>
+    <div class="nav-item">
+      <a class="nav-link" routerLink="/members">Retour</a>
+    </div>
+  </div>
 </div>
