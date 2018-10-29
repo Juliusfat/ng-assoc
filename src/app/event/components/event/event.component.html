@@ -1,3 +1,4 @@
+
 <ng-container *ngIf='!error && (event$ | async) as event; else loading'>
   <h2>{{ event.title }}</h2>
   <p>Lieu : {{ event.location }}</p>

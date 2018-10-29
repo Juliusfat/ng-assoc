@@ -1,5 +1,5 @@
 <!-- By GJK -->
-<div>
+<div class="container">
   <h2>Détail du membre</h2>
 
   <div>
@@ -10,7 +10,7 @@
     <p>Rôle : {{ member.role }}</p>
   </div>
   
-  <a [routerLink]="['/members', member.id, 'edit']">Éditer</a>
-  <button (click)="deleteMember()">Supprimer</button>
+  <a [routerLink]="['members', member.id, 'edit']">Modifier</a>
+  <button class="btn btn-danger" (click)="deleteMember(member.id)">Supprimer</button>
   <a routerLink="/members">Retour</a>
 </div>
