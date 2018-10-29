@@ -8,6 +8,7 @@ import { MemberEditComponent } from './components/member-edit/member-edit.compon
 import { RouterModule } from '@angular/router';
 import { MemberLoginComponent } from './components/member-login/member-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalComponent } from '../modal/modal.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MemberDetailComponent, 
     MemberAddComponent, 
     MemberEditComponent, 
-    MemberLoginComponent
+    MemberLoginComponent,
+    ModalComponent
   ],
   providers: [MemberService]
 })
