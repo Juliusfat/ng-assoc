@@ -5,18 +5,17 @@
   <ul>
     <li *ngFor="let member of members | async">
       <p>
-        {{ member.id }} - 
         {{ member.firstname }} {{ member.lastname }} - 
         {{ member.email }} - 
         {{ member.role }}
       </p>
       <p>
-        <a [routerLink]="[member.id]">Détail</a>
-        <a [routerLink]="[member.id, 'edit']">Modifier</a>
-        <button (click)="deleteMember(member.id)">Supprimer</button>
+        <a class="btn btn-info" [routerLink]="[member.id]">Détail</a>
+        <a class="btn btn-info" [routerLink]="[member.id, 'edit']">Modifier</a>
+        <button class="btn btn-info" (click)="deleteMember(member.id)">Supprimer</button>
       </p>
     </li>
   </ul>
 
-  <a routerLink="/members/add">Ajouter un membre</a>
+  <a class="btn btn-info" routerLink="/members/add">Ajouter un membre</a>
 </div>
