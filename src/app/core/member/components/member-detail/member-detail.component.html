@@ -1,5 +1,5 @@
 <!-- By GJK -->
-<div>
+<div class="container">
   <h2>Détail du membre</h2>
 
   <div>
@@ -10,7 +10,11 @@
     <p>Rôle : {{ member.role }}</p>
   </div>
   
-  <a class="btn btn-info" [routerLink]="['/members', member.id, 'edit']">Éditer</a>
-  <button class="btn btn-info" (click)="deleteMember()">Supprimer</button>
-  <a class="btn btn-danger" routerLink="/members">Retour</a>
+  <div>
+    <a class="btn btn-warning" [routerLink]="['/members', member.id, 'edit']">Modifier</a>
+    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Supprimer</button>
+    <a class="btn btn-link" routerLink="/members">Retour</a>
+  </div>
 </div>
+
+<app-modal [confirmFunction]="deleteMemberFunction" typeModal="delete" idModal="deleteModal"></app-modal>

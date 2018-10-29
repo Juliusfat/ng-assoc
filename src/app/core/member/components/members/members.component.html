@@ -1,21 +1,25 @@
 <!-- By GJK -->
-<div>
-  <h2>Liste des Membres</h2>
+<div class="container">
+  <h2 class="text-center">Liste des Membres</h2>
 
-  <ul>
-    <li *ngFor="let member of members | async">
-      <p>
+  <ul class="liste">
+    
+    <li class="row justify-content-between" *ngFor="let member of members | async">
+      
+      <div class="col-8">
         {{ member.firstname }} {{ member.lastname }} - 
         {{ member.email }} - 
         {{ member.role }}
-      </p>
-      <p>
+      </div>
+      <div class="col-4">
         <a class="btn btn-info" [routerLink]="[member.id]">Détail</a>
-        <a class="btn btn-info" [routerLink]="[member.id, 'edit']">Modifier</a>
-        <button class="btn btn-info" (click)="deleteMember(member.id)">Supprimer</button>
-      </p>
+        <a class="btn btn-warning" [routerLink]="[member.id, 'edit']">Modifier</a>
+        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" (click)="getMemberIdClicked(member.id)">Supprimer</button>
+      </div>
     </li>
   </ul>
 
-  <a class="btn btn-info" routerLink="/members/add">Ajouter un membre</a>
+  <a class="btn btn-link" routerLink="/members/add">Ajouter un membre</a>
+
+  <app-modal [confirmFunction]="deleteMemberFunction" typeModal="delete" idModal="deleteModal"></app-modal>
 </div>

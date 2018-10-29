@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MemberService } from '../../member.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Member, Role } from '../../member.model';
-import { Observable } from 'rxjs';
+import { Member } from '../../member.model';
 
 // By GJK
 @Component({
@@ -11,8 +10,10 @@ import { Observable } from 'rxjs';
   styleUrls: ['./member-edit.component.css']
 })
 export class MemberEditComponent implements OnInit {
-  member : Member = new Member();
+  public member : Member = new Member();
   private id : string;
+  public updateMemberFunction : Function;
+  public deleteMemberFunction : Function;
 
   constructor(private memberService : MemberService, private route : ActivatedRoute, private router : Router) { }
 
@@ -21,6 +22,8 @@ export class MemberEditComponent implements OnInit {
       this.id = params['id']; // Get ID from URL.
       this.memberService.getMemberById(this.id).subscribe(member => {
         this.member = member;
+        this.updateMemberFunction = this.updateMember.bind(this);
+        this.deleteMemberFunction = this.deleteMember.bind(this, this.id);
       });
     });
   }
