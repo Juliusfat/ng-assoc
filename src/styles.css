@@ -1,8 +1,10 @@
-button:not([disabled]) {
+button:not([disabled]), 
+input[type=submit]:not([disabled]) {
     cursor: pointer;
 }
 
-button[disabled] {
+button[disabled],
+input[type=submit][disabled] {
     cursor: not-allowed;
 }
 

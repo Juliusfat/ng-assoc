@@ -1,4 +1,3 @@
-<div class="container">
 <h2 class="text-center">Modifier un évenement</h2>
 <form (ngSubmit)='handleForm()' action="" [formGroup]='form'>
   <div class="form-group">
@@ -27,4 +26,5 @@
   </div>
   <input class="btn btn-info" [disabled]='form.invalid' type="submit" value="Éditer l'évènement">
 </form>
-</div>
+
+<button class='mt-4 btn btn-danger' (click)='deleteEvent()'>Supprimer l'évènement</button>
