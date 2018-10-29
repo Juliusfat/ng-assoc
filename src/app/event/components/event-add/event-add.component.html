@@ -1,3 +1,28 @@
-<p>
-  event-add works!
-</p>
+<h2>Ajouter un évènement</h2>
+<form (ngSubmit)='handleForm()' action="" [formGroup]='form'>
+    <div class="form-group">
+      <label for="title">Intitulé de l'évènement</label>
+      <input type="text" id="title" formControlName='title'>
+    </div>
+    <div class="form-group">
+      <label for="location">Lieu et adresse</label>
+      <input type="text" id="location" placeholder="Lieu et adresse" 
+        formControlName='location'>
+    </div>
+    <div class="form-group">
+      <label for="date">Date de l'évènement</label>
+      <input type="datetime-local" id="date" placeholder="Date de l'évènement"  
+        formControlName='date'>
+    </div>
+    <div class="form-group">
+      <label for="duration">Durée (en heures pleines)</label>
+      <input min="1" type="number" id="duration" placeholder="Durée en heures pleines" 
+        formControlName='duration'>
+    </div>
+    <div class="form-group">
+      <label for="capacity">Nombre de participants</label>
+      <input min="0" type="number" id="capacity" placeholder="Nombre de participants" 
+        formControlName="capacity">
+    </div>
+    <input [disabled]='form.invalid' type="submit" value="Ajouter l'évènement">
+</form>
