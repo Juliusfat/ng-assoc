@@ -1,25 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EventService } from '../../event.service';
 import { Event } from '../../event.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DateValidators } from 'src/app/shared/validators/date';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-event-edit',
   templateUrl: './event-edit.component.html',
   styleUrls: ['./event-edit.component.css']
 })
-export class EventEditComponent implements OnInit {
+export class EventEditComponent implements OnInit, OnDestroy {
   
   private id:string;
   private event: Event;
+  private subs:Subscription = new Subscription();
   form:FormGroup
 
   constructor(
     private eventService : EventService, 
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private router:Router
   ) { }
 
   ngOnInit() {    
@@ -44,9 +47,15 @@ export class EventEditComponent implements OnInit {
     })
   }
 
+  ngOnDestroy() {
+    this.subs.unsubscribe();
+  }
+
   handleForm(): void {
     if (this.form.valid) { 
-      // Need the update logic in the service.
+      this.eventService.updateEvent(this.id, this.form.value).subscribe((event:Event) => {
+          this.router.navigate(['/events', event.id]);
+      }).add(this.subs);
     }
   }
 

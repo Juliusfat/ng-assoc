@@ -95,11 +95,28 @@
     {
       "title": "Event n° 1",
       "id": "cf3992e3-b82a-45fb-bfce-778585c06a6e",
-      "participants": [],
-      "capacity": 27,
+      "participants": [
+        {
+          "id": "7d7e4c2d-704e-4dc4-a709-b3f9abf43351",
+          "firstname": "Elsie",
+          "lastname": "Shields",
+          "email": "elsieshields@centice.com",
+          "password": null,
+          "role": []
+        },
+        {
+          "id": "e6cc145c-95ea-442a-92b9-1980c009352f",
+          "firstname": "Pugh",
+          "lastname": "Bryant",
+          "email": "pughbryant@centice.com",
+          "password": null,
+          "role": []
+        }
+      ],
+      "capacity": 25,
       "location": "594 Oceanview Avenue, Bergoo, Wyoming, 8392",
       "date": "2018-10-31T01:02:35",
-      "duration": 4
+      "duration": 2
     },
     {
       "title": "Event n° 2",
@@ -113,8 +130,25 @@
     {
       "title": "Event n° 3",
       "id": "a3e995d0-695a-43d4-ba8f-2fb37a7be356",
-      "participants": [],
-      "capacity": 49,
+      "participants": [
+        {
+          "id": "b259e392-ccca-438a-ba95-e68c97c733d7",
+          "firstname": "Lauren",
+          "lastname": "Barry",
+          "email": "laurenbarry@centice.com",
+          "password": null,
+          "role": []
+        },
+        {
+          "id": "7d7e4c2d-704e-4dc4-a709-b3f9abf43351",
+          "firstname": "Elsie",
+          "lastname": "Shields",
+          "email": "elsieshields@centice.com",
+          "password": null,
+          "role": []
+        }
+      ],
+      "capacity": 3,
       "location": "734 Quay Street, Westerville, Colorado, 5467",
       "date": "2019-01-06T03:26:09",
       "duration": 3
@@ -134,7 +168,7 @@
       "participants": [],
       "capacity": 13,
       "location": "347 Humboldt Street, Kersey, Massachusetts, 3400",
-      "date": "2019-01-01T11:50:46",
+      "date": "2019-01-15T11:50:46",
       "duration": 1
     },
     {
@@ -167,7 +201,24 @@
     {
       "title": "Event n° 9",
       "id": "974d88bb-21b8-436f-94e1-d5558974253d",
-      "participants": [],
+      "participants": [
+        {
+          "id": "e6cc145c-95ea-442a-92b9-1980c009352f",
+          "firstname": "Pugh",
+          "lastname": "Bryant",
+          "email": "pughbryant@centice.com",
+          "password": null,
+          "role": []
+        },
+        {
+          "id": "f1584ea1-9630-4b43-8d74-cb66cb62c7b8",
+          "firstname": "Hodges",
+          "lastname": "Wolf",
+          "email": "hodgeswolf@centice.com",
+          "password": null,
+          "role": []
+        }
+      ],
       "capacity": 23,
       "location": "274 Clinton Avenue, Gwynn, American Samoa, 3316",
       "date": "2019-01-15T04:53:23",
@@ -206,7 +257,24 @@
       "date": "2018-12-19T15:00",
       "duration": 2,
       "capacity": 25,
-      "participants": [],
+      "participants": [
+        {
+          "id": "84a21060-9c33-4377-bd50-5033b277ed8a",
+          "firstname": "Eddie",
+          "lastname": "Morse",
+          "email": "eddiemorse@centice.com",
+          "password": null,
+          "role": []
+        },
+        {
+          "id": "e37f13e7-cce7-4ed1-8729-29344d2001dc",
+          "firstname": "Colon",
+          "lastname": "Blackwell",
+          "email": "colonblackwell@centice.com",
+          "password": null,
+          "role": []
+        }
+      ],
       "location": "Lille"
     }
   ]
