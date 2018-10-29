@@ -39,7 +39,11 @@ export class MembersComponent implements OnInit {
     });
   }
 
-  getMemberIdClicked(id : string) {
+  /**
+   * Set the delete function with a member ID.
+   * @param id 
+   */
+  setDeleteFunctionWithId(id : string) {
     this.deleteMemberFunction = this.deleteMember.bind(this, id);
   }
 

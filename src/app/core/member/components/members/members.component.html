@@ -9,12 +9,12 @@
       <div class="col-8">
         {{ member.firstname }} {{ member.lastname }} - 
         {{ member.email }} - 
-        {{ member.role }}
+        <span class="badge badge-primary">{{ member.role }}</span>
       </div>
       <div class="col-4">
         <a class="btn btn-info" [routerLink]="[member.id]">Détail</a>
         <a class="btn btn-warning" [routerLink]="[member.id, 'edit']">Modifier</a>
-        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" (click)="getMemberIdClicked(member.id)">Supprimer</button>
+        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" (click)="setDeleteFunctionWithId(member.id)">Supprimer</button>
       </div>
     </li>
   </ul>
