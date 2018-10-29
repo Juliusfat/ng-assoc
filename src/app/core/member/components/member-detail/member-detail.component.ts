@@ -26,11 +26,11 @@ export class MemberDetailComponent implements OnInit {
 
   /**
    * Delete a member according to his/her id and redirect to members list.
-   * @param { string } id
    */
-  deleteMember(id : string) {
-    this.memberService.deleteMember(id);
-    this.router.navigate(['/members']);
+  deleteMember() {
+    this.memberService.deleteMember(this.id).then(() => {
+      this.router.navigate(['/members']);
+    });
   }
 
 }

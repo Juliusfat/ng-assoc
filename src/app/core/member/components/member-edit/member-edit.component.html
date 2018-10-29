@@ -6,10 +6,9 @@
     <p><label for="firstname">Prénom : </label><input type="text" name="firstname" id="firstname" [(ngModel)]="member.firstname" value="{{ member.firstname }}" required/></p>
     <p><label for="lastname">Nom : </label><input type="text" name="lastname" id="lastname" [(ngModel)]="member.lastname" value="{{ member.lastname }}" required/></p>
     <p><label for="email">E-mail : </label><input type="email" name="email" id="email" [(ngModel)]="member.email" value="{{ member.email }}" required/></p>
-    <p><label for="role">Administrateur : </label><input type="checkbox" name="role" id="role" [checked]="isAdmin" (change)="isAdmin = !isAdmin"/></p>
   </div>
   
-  <a [routerLink]="[member.id, 'edit']">Modifier</a>
-  <button (click)="deleteMember(member.id)">Supprimer</button>
+  <button (click)="updateMember()">Mettre à jour</button>
+  <button (click)="deleteMember()">Supprimer</button>
   <a routerLink="/members">Retour</a>
 </div>
