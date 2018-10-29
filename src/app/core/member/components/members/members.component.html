@@ -7,18 +7,19 @@
     <li class="row justify-content-between" *ngFor="let member of members | async">
       
       <div class="col-8">
-        {{ member.id }} -
         {{ member.firstname }} {{ member.lastname }} - 
         {{ member.email }} - 
         {{ member.role }}
       </div>
       <div class="col-4">
-        <button class="btn btn-info" [routerLink]="[member.id]">Détail</button>
-        <button class="btn btn-warning" [routerLink]="[member.id, 'edit']">Modifier</button>
-        <button class="btn btn-danger" (click)="deleteMember(member.id)">Supprimer</button>
+        <a class="btn btn-info" [routerLink]="[member.id]">Détail</a>
+        <a class="btn btn-warning" [routerLink]="[member.id, 'edit']">Modifier</a>
+        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" (click)="getMemberIdClicked(member.id)">Supprimer</button>
       </div>
     </li>
   </ul>
 
-  <a routerLink="/members/add">Ajouter un membre</a>
+  <a class="btn btn-link" routerLink="/members/add">Ajouter un membre</a>
+
+  <app-modal [confirmFunction]="deleteMemberFunction" typeModal="delete" idModal="deleteModal"></app-modal>
 </div>

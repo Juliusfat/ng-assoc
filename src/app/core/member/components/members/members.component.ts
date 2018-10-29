@@ -13,6 +13,7 @@ import { finalize } from 'rxjs/operators';
 export class MembersComponent implements OnInit {
   private isLoaded : boolean = false;
   public members : Observable<Member[]>;
+  public deleteMemberFunction : Function;
 
   constructor(private memberService : MemberService) { }
 
@@ -36,6 +37,10 @@ export class MembersComponent implements OnInit {
     this.memberService.deleteMember(id).then(() => {
       this.members = this.memberService.getMembers().pipe(finalize( () => this.isLoaded = true));
     });
+  }
+
+  getMemberIdClicked(id : string) {
+    this.deleteMemberFunction = this.deleteMember.bind(this, id);
   }
 
 }
