@@ -12,18 +12,21 @@ export class MemberAddComponent implements OnInit {
   firstname : string;
   lastname : string;
   email : string;
+  public addMemberFunction : Function;
 
   constructor(private memberService : MemberService, private router : Router) { }
 
   ngOnInit() {
+    this.addMemberFunction = this.addMember.bind(this);
   }
 
   /**
    * Adding a member and redirect to members list.
    */
   addMember() : void {
-    this.memberService.addMember(this.firstname, this.lastname, this.email);
-    this.router.navigate(['/members']);
+    this.memberService.addMember(this.firstname, this.lastname, this.email).then(
+      () => this.router.navigate(['/members'])
+    );
   }
 
 }
