@@ -1,3 +1,5 @@
+//guillaume
+
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Member } from 'src/app/core/member/member.model';
 import { MemberService } from '../../../core/member/member.service'
