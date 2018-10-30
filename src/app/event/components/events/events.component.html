@@ -1,6 +1,7 @@
 <div class="container">
   <h2 class="text-center">Liste des évenements</h2>
   <div class="liste">
+      <a routerLink="/events/calendar">Voir le calendrier</a>
   <ul>
     <li *ngFor="let event of events">
       <h3 style='font-size: 16px'>{{ event.title }}</h3>
