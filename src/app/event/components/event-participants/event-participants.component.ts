@@ -1,18 +1,18 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+//guillaume
+
+import { Component, OnInit, Input, Output, EventEmitter,  } from '@angular/core';
 import { Member } from 'src/app/core/member/member.model';
 import { MemberService } from '../../../core/member/member.service'
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-event-participants',
   templateUrl: './event-participants.component.html',
   styleUrls: ['./event-participants.component.css']
 })
-export class EventParticipantsComponent implements OnInit, OnDestroy {
+export class EventParticipantsComponent implements OnInit {
 
   protected _participants:Member[] = [];
-  protected non_participants:Member[] = [];
-  private sub:Subscription = new Subscription();
+  protected non_participants:Member[] = [];  
 
   @Output() 
   updateParticipants: EventEmitter<Member[]> = new EventEmitter<Member[]>();
@@ -41,7 +41,7 @@ export class EventParticipantsComponent implements OnInit, OnDestroy {
       this.non_participants = members.filter((m:Member) => {
         return !this._participants.find((member:Member) => m.id === member.id)
       })      
-    }).add(this.sub)
+    })
   }
 
   /**
@@ -73,10 +73,6 @@ export class EventParticipantsComponent implements OnInit, OnDestroy {
     this.non_participants.unshift(member);
     // Emit the new list to the event component, which updates.
     this.emitParticipants();
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
   }
 
 }

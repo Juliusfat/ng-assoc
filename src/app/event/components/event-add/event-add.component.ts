@@ -20,6 +20,8 @@ import { DateValidators } from 'src/app/shared/validators/date';
 export class EventAddComponent implements OnInit {
 
   form:FormGroup
+  inputDelay:number = 400
+
   constructor(
     private eventservice:EventService,
     private router:Router

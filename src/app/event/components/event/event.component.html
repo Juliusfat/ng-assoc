@@ -18,7 +18,8 @@
     (updateParticipants)='updateParticipants($event)'>
   </app-event-participants>
 
-  <a href="" [routerLink]='["/events", event.id, "edit"]'>Éditer l'évènement</a>
+  <a class="btn btn-link" href="" [routerLink]='["/events", event.id, "edit"]'>Éditer l'évènement</a>
+  <a class="btn btn-link" href="" routerLink='/events/calendar'>voir calendrier</a>
 
 </ng-container>
 

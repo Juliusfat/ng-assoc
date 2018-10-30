@@ -8,6 +8,7 @@ import { HttpParams } from '@angular/common/http';
 import { v4 as uuid } from 'uuid';
 import { CanActivate } from '@angular/router';
 import { Router } from '@angular/router';
+import { StorageService } from '../services/storage.service';
 
 // by Guillaume Deblock
 
@@ -16,18 +17,28 @@ import { Router } from '@angular/router';
 })
 export class MemberService implements CanActivate {
   
+  private STORAGE_KEY:string = 'logged_user';
   private apiURL:string = `${environment.apiUrl}/members`;
   currentUser: BehaviorSubject<Member> = new BehaviorSubject<Member>(null);
   currentUser$: Observable<Member> = this.currentUser.asObservable();
 
-  constructor(private api: ApiService, private router:Router) { }
+  constructor(private api: ApiService, private router:Router, private storage:StorageService) { }
+
+  /**
+   * Get user at the launch of the application
+   */
+  bootUser () {
+    this.storage.get(this.STORAGE_KEY).then(value => {
+      this.currentUser.next(value);
+    }).catch(() => { });
+  }
 
   /**
    * Get user for a specified email of null
    * @param email 
    * @returns Observable<Member|null>
    */
-  private getMemberByEmail(email:string) : Observable<Member|null> {
+  public getMemberByEmail(email:string) : Observable<Member|null> {
     let params = { params: new HttpParams().set('email', email) }
     return this.api.http.get<Member[]>(this.apiURL, params).pipe(
       switchMap((results) => {
@@ -61,8 +72,11 @@ export class MemberService implements CanActivate {
           // Checking password equality to log the user in.
           if (result.password === password) {
             // Log the user in
-            this.currentUser.next(result);
-            resolve(result);
+            let { password, role, ...user } = result
+            this.storage.save(this.STORAGE_KEY, user).then((value:Member) => {
+              this.currentUser.next(result);
+              resolve(result);
+            })            
           } else {
             // Invalid password.
             reject('Mot de passe invalide.');
@@ -81,8 +95,10 @@ export class MemberService implements CanActivate {
    */
   logout(): Promise<null> {
     return new Promise(resolve => {
-      this.currentUser.next(null);
-      resolve();
+      this.storage.clear(this.STORAGE_KEY).then(() => {
+        this.currentUser.next(null);      
+        resolve();
+      })
     })
   }
   
