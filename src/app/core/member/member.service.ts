@@ -177,4 +177,38 @@ export class MemberService implements CanActivate {
     } 
     return isLoggedIn;
   }
+
+  /**
+   * Toggle Admin role of the member checking the id.
+   * @param { string } id 
+   * @param { boolean } isAdmin 
+   */
+  toggleAdmin(id : string, isAdmin : boolean) : Observable<Member|null> {
+    let modifications = {
+      "role" : [],
+      "password" : null
+    }
+    if (!isAdmin) {
+      modifications = {
+        "role" : ["ADMIN"],
+        "password" : this.generateRandomPassword(8)
+      };
+    }
+    return this.updateUserById(id, modifications);
+  }
+
+  /**
+   * Generate password with desired length.
+   * @param { number } length 
+   */
+  generateRandomPassword(length : number) : string {
+    var genPassword = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  
+    for (var i = 0; i < length; i++) {
+      genPassword += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+  
+    return genPassword;
+  }
 }

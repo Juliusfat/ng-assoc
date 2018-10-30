@@ -7,12 +7,10 @@
     <div class="form-group"><label for="lastname">Nom : </label><input class="form-control" type="text" name="lastname" id="lastname" [(ngModel)]="lastname" required></div>
     <div class="form-group"><label for="email">E-mail : </label><input class="form-control" type="email" name="email" id="email" [(ngModel)]="email" required></div>
   </div>
-  <div class="nav">
-  <div class="nav-item">
-  <button class="btn btn-info" (click)="addMember()">Ajouter</button>
-  </div>
-  <div class="nav-item">
-  <a class="nav-link" routerLink="/members">Retour</a>
-  </div>
+  <div>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Ajouter</button>
+      <a class="btn btn-link" routerLink="/members">Retour</a>
   </div>
 </div>
+
+<app-modal [confirmFunction]="addMemberFunction" typeModal="add"></app-modal>
