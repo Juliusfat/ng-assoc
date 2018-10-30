@@ -14,11 +14,10 @@ import { Subscription } from 'rxjs';
   templateUrl: './event-edit.component.html',
   styleUrls: ['./event-edit.component.css']
 })
-export class EventEditComponent implements OnInit, OnDestroy {
+export class EventEditComponent implements OnInit {
   
   private id:string;
-  private event: Event;
-  private subs:Subscription = new Subscription();
+  private event: Event;  
   form:FormGroup
 
   constructor(
@@ -49,15 +48,11 @@ export class EventEditComponent implements OnInit, OnDestroy {
     })
   }
 
-  ngOnDestroy() {
-    this.subs.unsubscribe();
-  }
-
   handleForm(): void {
     if (this.form.valid) { 
       this.eventService.updateEvent(this.id, this.form.value).subscribe((event:Event) => {
           this.router.navigate(['/events', event.id]);
-      }).add(this.subs);
+      })
     }
   }
 

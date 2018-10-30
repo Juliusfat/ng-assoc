@@ -9,15 +9,24 @@ import { EventsCalendarComponent} from './components/events-calendar/events-cale
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EventParticipantsComponent } from './components/event-participants/event-participants.component';
 import { FullCalendarModule} from 'primeng/fullcalendar';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
+    CommonModule,    
     EventRootingModule,
     FormsModule,
     ReactiveFormsModule,
-    FullCalendarModule
+    FullCalendarModule,
+    SharedModule
   ],
-  declarations: [EventsComponent, EventComponent, EventEditComponent, EventAddComponent, EventParticipantsComponent, EventsCalendarComponent]
+  declarations: [
+    EventsComponent, 
+    EventComponent, 
+    EventEditComponent, 
+    EventAddComponent, 
+    EventParticipantsComponent,
+    EventsCalendarComponent
+  ]
 })
 export class EventModule { }
