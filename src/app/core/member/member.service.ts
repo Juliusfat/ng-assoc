@@ -27,7 +27,7 @@ export class MemberService implements CanActivate {
    * @param email 
    * @returns Observable<Member|null>
    */
-  private getMemberByEmail(email:string) : Observable<Member|null> {
+  public getMemberByEmail(email:string) : Observable<Member|null> {
     let params = { params: new HttpParams().set('email', email) }
     return this.api.http.get<Member[]>(this.apiURL, params).pipe(
       switchMap((results) => {
