@@ -124,7 +124,7 @@
       "capacity": 4,
       "location": "594 Oceanview Avenue, Bergoo, Wyoming, 8392",
       "date": "2018-10-31T18:20",
-      "duration": 2
+      "duration": 3
     },
     {
       "title": "Event n° 2",
@@ -199,7 +199,16 @@
     {
       "title": "Visite du zoo de Lille",
       "id": "d397bbb8-a1d1-47b2-8d34-24a34faceb50",
-      "participants": [],
+      "participants": [
+        {
+          "id": "7d7e4c2d-704e-4dc4-a709-b3f9abf43351",
+          "firstname": "Elsie",
+          "lastname": "Shields",
+          "email": "elsieshields@centice.com",
+          "password": null,
+          "role": []
+        }
+      ],
       "capacity": 16,
       "location": "59000 Lille",
       "date": "2019-01-03T09:30",
@@ -253,10 +262,10 @@
           "role": []
         },
         {
-          "id": "f1584ea1-9630-4b43-8d74-cb66cb62c7b8",
-          "firstname": "Hodges",
-          "lastname": "Wolf",
-          "email": "hodgeswolf@centice.com",
+          "id": "7d7e4c2d-704e-4dc4-a709-b3f9abf43351",
+          "firstname": "Elsie",
+          "lastname": "Shields",
+          "email": "elsieshields@centice.com",
           "password": null,
           "role": []
         }

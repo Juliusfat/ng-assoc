@@ -1,3 +1,5 @@
+//cyrille
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EventService } from '../../event.service';
 import { Event } from '../../event.model';
