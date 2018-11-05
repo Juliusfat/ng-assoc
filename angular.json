@@ -33,7 +33,9 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/fullcalendar/dist/fullcalendar.js"
+              "node_modules/fullcalendar/dist/fullcalendar.js",
+              "node_modules/dragula/dist/dragula.min.js",
+              "node_modules/moment/min/moment.min.js"
             ]
           },
           "configurations": {

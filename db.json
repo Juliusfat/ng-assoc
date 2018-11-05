@@ -124,7 +124,7 @@
       "capacity": 4,
       "location": "594 Oceanview Avenue, Bergoo, Wyoming, 8392",
       "date": "2018-10-31T18:20",
-      "duration": 3
+      "duration": 2
     },
     {
       "title": "Event n° 2",
@@ -211,7 +211,7 @@
       ],
       "capacity": 16,
       "location": "59000 Lille",
-      "date": "2019-01-03T09:30",
+      "date": "2019-01-05T09:30:00+01:00",
       "duration": 2
     },
     {
