@@ -67,4 +67,8 @@ export class EventService {
   updateEvent(id: string, values: { [prop: string]: any }) : Observable<Event> {
     return this.apiService.http.patch<Event>(`${this.apiEvent}/${id}`, values);
   }
+
+  changeEventDate(id: string, date : string) : Observable<Event> {
+    return this.apiService.http.patch<Event>(`${this.apiEvent}/${id}`, {'date': date});
+  }
 }

@@ -5,6 +5,8 @@ import { EventService } from '../../event.service';
 import { Event } from '../../event.model';
 import { Router } from '@angular/router';
 import { FullCalendar } from 'primeng/fullcalendar';
+import * as moment from 'moment';
+import { injectComponentFactoryResolver } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-events-calendar',
@@ -15,9 +17,9 @@ export class EventsCalendarComponent implements OnInit {
 
   constructor(private eventService: EventService, private route: Router) { }
 
-  public events: any[];
+  public events: Event[];
   public options: any;
-  public locale: any;
+  public locale: string;
 
   @ViewChild('fc') fc: FullCalendar;
 
@@ -36,13 +38,33 @@ export class EventsCalendarComponent implements OnInit {
         right: 'month,agendaWeek,agendaDay'
       },
       locale: 'fr',
+      editable: true,
+      droppable: true,
+
+      /**
+       * drag and drop function :move an event in the calendar and update the date of the event in the database
+       */
+
+      eventDrop: (obj) => {
+        const eventDate : string = moment(obj.event.start).format();
+        const currentId = obj.event.def.publicId;
+        console.log(eventDate);
+        console.log(currentId);
+        this.eventService.changeEventDate(currentId,eventDate).subscribe((event:Event) => {
+          this.route.navigate(['/events', event.id]);
+      })
+      },
+
       /**
        * the method that listens to the click on an event and returns the associated id
        */
       eventClick: (obj) => {
-       this.route.navigate(['/events',obj.event.id]);   
+        this.route.navigate(['/events', obj.event.id]);
+      },
+      dateClick: (obj) => {
+        console.log(obj);
       }
-    };   
+    };
   }
 
   getEventsCalendar(): void {
