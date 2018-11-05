@@ -5,8 +5,6 @@ import { EventService } from '../../event.service';
 import { Event } from '../../event.model';
 import { Router } from '@angular/router';
 import { FullCalendar } from 'primeng/fullcalendar';
-import * as moment from 'moment';
-import { injectComponentFactoryResolver } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-events-calendar',
@@ -46,13 +44,17 @@ export class EventsCalendarComponent implements OnInit {
        */
 
       eventDrop: (obj) => {
-        const eventDate : string = moment(obj.event.start).format();
+        const eventDate : string = new Date(Date.parse(obj.event.start)).toISOString();
         const currentId = obj.event.def.publicId;
-        console.log(eventDate);
-        console.log(currentId);
         this.eventService.changeEventDate(currentId,eventDate).subscribe((event:Event) => {
           this.route.navigate(['/events', event.id]);
       })
+      },
+
+      validRange:(nowDate)=> {
+        return {
+        start: nowDate
+        }
       },
 
       /**
