@@ -62,7 +62,7 @@ export class EventsCalendarComponent implements OnInit {
         this.route.navigate(['/events', obj.event.id]);
       },
       dateClick: (obj) => {
-        console.log(obj);
+        this.route.navigate(['/events/add'], { queryParams: { date:obj.dateStr } })
       }
     };
   }
