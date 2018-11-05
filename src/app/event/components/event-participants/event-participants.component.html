@@ -1,9 +1,10 @@
 <ng-container *ngIf='_participants.length'>
   <h3 class='subtitle'>Participent</h3>
-  <ul>
-    <li *ngFor='let p of _participants'>
+  <ul class='list-group my-3'>
+    <li *ngFor='let p of _participants' class='py-2 px-4 list-group-item d-flex align-items-center justify-content-between'>
       {{ p.firstname }} {{ p.lastname }}
-      <button 
+      <button
+        class='btn btn-danger' 
         [attr.aria-label]='"Remove "+p.firstname+" "+p.lastname+" from the event"' 
         (click)='removeParticipantToEvent(p)'> - </button>
     </li>
@@ -11,10 +12,11 @@
 </ng-container>
 <ng-container *ngIf='non_participants.length'>
   <h3 class='subtitle'>Ne participent pas...</h3>
-  <ul>
-    <li *ngFor='let np of non_participants'>
+  <ul class='list-group my-3'>
+    <li *ngFor='let np of non_participants' class='py-2 px-4 list-group-item d-flex align-items-center justify-content-between'>
       {{ np.firstname }} {{ np.lastname }}
       <button 
+        class='btn btn-info'
         [disabled]='max !== 0 && _participants.length === max'
         [attr.aria-label]='"Add "+np.firstname+" "+np.lastname+" to the event"' 
         (click)='addParticipantToEvent(np)'> + </button>

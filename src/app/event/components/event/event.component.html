@@ -1,17 +1,16 @@
 <ng-container *ngIf='!error && (event$ | async) as event; else loading'>
   
-  <h2>{{ event.title }}</h2>
+  <h2 class='mt-2'>{{ event.title }}</h2>
   
   <div class="details">
-    <p>{{ event.location }}</p>
-    <p>le {{ event.date | date:'dd\/MM\/yyyy' }} à {{ event.date | date:'HH\:mm' }}.</p>
-    <p>Durée : {{ event.duration }} heure{{event.duration > 1 ? "s" : ""}}</p>
+    <p>{{ event.location }}, le {{ event.date | date:'dd\/MM\/yyyy' }} à {{ event.date | date:'HH\:mm' }}.</p>
+    <p>Durée : {{ event.duration }} heure{{event.duration > 1 ? "s" : ""}}
     <ng-container *ngIf='event.capacity !== 0'>
-      <p>Place(s) disponible(s) : {{ event.capacity - event.participants.length }} / {{ event.capacity }}</p>
+      - place(s) disponible(s) : {{ event.capacity - event.participants.length }} / {{ event.capacity }}
     </ng-container>
+    </p>
   </div>
-  
-  <h3>Participants</h3>
+    
   <app-event-participants 
     [max]='event.capacity' 
     [participants]='event.participants' 
@@ -19,7 +18,7 @@
   </app-event-participants>
 
   <a class="btn btn-link" href="" [routerLink]='["/events", event.id, "edit"]'>Éditer l'évènement</a>
-  <a class="btn btn-link" href="" routerLink='/events/calendar'>voir calendrier</a>
+  <a class="btn btn-link" href="" routerLink='/events/calendar'>Voir le calendrier</a>
 
 </ng-container>
 
