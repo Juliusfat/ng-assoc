@@ -9,13 +9,15 @@ import { RouterModule } from '@angular/router';
 import { MemberLoginComponent } from './components/member-login/member-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from '../modal/modal.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],  
   declarations: [
     MembersComponent, 

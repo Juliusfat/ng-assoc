@@ -2,11 +2,11 @@
   <form [formGroup]='form' action="" (ngSubmit)='handleForm()'>
     <div class="form-group">
       <label for="email">Adresse email</label>
-      <input class="form-control" type="email" id="email" placeholder="Adresse email" formControlName='email'>
+      <input class="form-control" type="email" id="email" placeholder="Adresse email" formControlName='email'/>
     </div>
     <div class="form-group">
       <label for="password">Mot de passe</label>
-      <input class="form-control" type="password" id="password" placeholder="Mot de passe" formControlName="password">
+      <input class="form-control" type="password" id="password" placeholder="Mot de passe" formControlName="password" appShowPasswordField/>
     </div>
     <input class="btn btn-info" type="submit" value='Login' [disabled]='form.invalid'>
   </form>
