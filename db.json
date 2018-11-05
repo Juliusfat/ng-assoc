@@ -211,7 +211,7 @@
       ],
       "capacity": 16,
       "location": "59000 Lille",
-      "date": "2019-01-05T09:30:00+01:00",
+      "date": "2019-01-03T08:30:00.000Z",
       "duration": 2
     },
     {
@@ -246,7 +246,7 @@
       "participants": [],
       "capacity": 10,
       "location": "333 Creamer Street, Northridge, Florida, 632",
-      "date": "2019-03-14T06:44:51",
+      "date": "2019-03-05T06:44:51+01:00",
       "duration": 1
     },
     {
