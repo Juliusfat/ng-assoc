@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment'
 import { MemberService } from '../../core/member/member.service'
-import { Member } from 'src/app/core/member/member.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,16 +10,11 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  title:string = environment.appName
-  currentUser:Member
+  title:string = environment.appName  
   
-  constructor(private memberservice:MemberService, private router:Router) { }
+  constructor(public memberservice:MemberService, private router:Router) { }
 
-  ngOnInit() {
-    this.memberservice.currentUser.subscribe((user:Member) => {
-      this.currentUser = user;      
-    })
-  }
+  ngOnInit() { }
 
   /**
    * Log out the user and redirect to the login page

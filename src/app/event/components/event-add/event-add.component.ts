@@ -5,7 +5,7 @@ import {
   FormControl, 
   Validators
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Event } from '../../event.model'
 import { EventService } from '../../event.service'
 import { DateValidators } from 'src/app/shared/validators/date';
@@ -24,10 +24,12 @@ export class EventAddComponent implements OnInit {
 
   constructor(
     private eventservice:EventService,
-    private router:Router
+    private router:Router,
+    private route:ActivatedRoute
   ) { }
 
   ngOnInit() { 
+
     this.form = new FormGroup({
       title: new FormControl('', [ Validators.required, Validators.minLength(2) ]),
       date: new FormControl('', [Validators.required, DateValidators.dateAfter()]),
@@ -35,6 +37,11 @@ export class EventAddComponent implements OnInit {
       capacity: new FormControl(0, [Validators.required, Validators.min(0)]),
       location: new FormControl('', [Validators.required, Validators.minLength(5)])      
     });
+
+    this.route.queryParams.subscribe(params => {      
+      this.form.get('date').setValue(`${params['date']}T08:00`);  
+    })
+
   }
 
   /**
