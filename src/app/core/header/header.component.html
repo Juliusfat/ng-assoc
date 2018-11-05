@@ -5,7 +5,7 @@
     </div>
     <div class="col-sm-10">
       <nav class="nav justify-content-end pt-3 pb-2">
-        <ng-container *ngIf='currentUser'>
+        <ng-container *ngIf='(memberservice.currentUser | async) as user; else notloggedin'>
           <li class="nav-item">
             <a class="nav-link" href='' routerLink='/events'>Évènements</a>
           </li>
@@ -16,11 +16,11 @@
             <button class="btn btn-warning" (click)='logout()'>Logout</button>
           </li>
         </ng-container>
-        <ng-container *ngIf='!currentUser'>
+        <ng-template #notloggedin>
           <li class="nav-item">
             <a class="nav-link" href='' routerLink='/login'>Login</a>
           </li>
-        </ng-container>
+        </ng-template>
       </nav>
     </div>
   </div>
