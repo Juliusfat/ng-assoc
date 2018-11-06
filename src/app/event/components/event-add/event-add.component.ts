@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Event } from '../../event.model'
 import { EventService } from '../../event.service'
 import { DateValidators } from 'src/app/shared/validators/date';
+import { MetaService } from 'src/app/core/services/meta.service';
 
 // by Guillaume
 
@@ -25,7 +26,8 @@ export class EventAddComponent implements OnInit {
   constructor(
     private eventservice:EventService,
     private router:Router,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private meta:MetaService
   ) { }
 
   ngOnInit() { 
@@ -43,6 +45,8 @@ export class EventAddComponent implements OnInit {
         this.form.get('date').setValue(`${params['date']}T08:00`);  
       }
     })
+
+    this.meta.setTitle('Ajouter un évènement')
 
   }
 
