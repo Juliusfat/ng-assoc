@@ -3,6 +3,7 @@ import { Member, Role } from '../../member.model';
 import { MemberService } from '../../member.service';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import { MetaService } from '../../../services/meta.service'
 
 // By GJK
 @Component({
@@ -16,10 +17,11 @@ export class MembersComponent implements OnInit {
   
   public deleteMemberFunction : Function;
 
-  constructor(private memberService : MemberService) { }
+  constructor(private memberService : MemberService, private meta:MetaService) { }
 
   ngOnInit() {
     this.getMembers();
+    this.meta.setTitle('Liste des membres')
   }
 
   /**

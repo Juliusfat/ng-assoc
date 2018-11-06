@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MemberService } from '../../member.service';
 import { Router } from '@angular/router';
+import { MetaService } from '../../../services/meta.service'
 
 // By GJK
 @Component({
@@ -14,10 +15,15 @@ export class MemberAddComponent implements OnInit {
   email : string;
   public addMemberFunction : Function;
 
-  constructor(private memberService : MemberService, private router : Router) { }
+  constructor(
+    private memberService : MemberService, 
+    private router : Router,
+    private meta:MetaService
+  ) { }
 
   ngOnInit() {
     this.addMemberFunction = this.addMember.bind(this);
+    this.meta.setTitle('Ajouter un membre')
   }
 
   /**

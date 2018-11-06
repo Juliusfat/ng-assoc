@@ -5,6 +5,7 @@ import { EventService } from '../../event.service';
 import { Event } from '../../event.model';
 import { Router } from '@angular/router';
 import { FullCalendar } from 'primeng/fullcalendar';
+import { MetaService } from 'src/app/core/services/meta.service';
 
 @Component({
   selector: 'app-events-calendar',
@@ -13,7 +14,12 @@ import { FullCalendar } from 'primeng/fullcalendar';
 })
 export class EventsCalendarComponent implements OnInit {
 
-  constructor(private eventService: EventService, private route: Router) { }
+  constructor(
+    private eventService: EventService, 
+    private route: Router,
+    private meta:MetaService
+  ) { }
+
   public goDate : Date;
   public events: Event[];
   public options: any;
@@ -24,6 +30,7 @@ export class EventsCalendarComponent implements OnInit {
   ngOnInit() {
 
     this.getEventsCalendar();
+    this.meta.setTitle('Calendrier des évènements')
 
     /**
      * create an array to define all the options of the calendar  

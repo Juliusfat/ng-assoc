@@ -22,3 +22,7 @@ input[type=submit][disabled] {
 .liste {
     padding : 20px 0;
 }
+
+.nav-link.active {    
+    background-color: var( --light);
+}
