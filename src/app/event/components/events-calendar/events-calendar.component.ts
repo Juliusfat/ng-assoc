@@ -14,7 +14,7 @@ import { FullCalendar } from 'primeng/fullcalendar';
 export class EventsCalendarComponent implements OnInit {
 
   constructor(private eventService: EventService, private route: Router) { }
-
+  public goDate : Date;
   public events: Event[];
   public options: any;
   public locale: string;
@@ -50,7 +50,9 @@ export class EventsCalendarComponent implements OnInit {
           this.route.navigate(['/events', event.id]);
       })
       },
-
+      /**
+       * limit the starting date of the calendar at the current date
+       */
       validRange:(nowDate)=> {
         return {
         start: nowDate
@@ -68,7 +70,9 @@ export class EventsCalendarComponent implements OnInit {
       }
     };
   }
-
+  /**
+   * inject the recovered events into the json database in the calendar
+   */
   getEventsCalendar(): void {
     this.eventService.getListEvents()
       .subscribe(
@@ -77,4 +81,11 @@ export class EventsCalendarComponent implements OnInit {
         }
       )
   }
+
+  /**
+   * use the child calendar component and allow access to a specific date 
+   */
+  gotoDate() {
+    this.fc.getCalendar().gotoDate(this.goDate);
+}
 }

@@ -1,3 +1,10 @@
 
 <h2 class= "text-center">Calendrier des évenements</h2>
+
+<div class="form-group">
+  <label for="date">Visualiser une date</label>
+  <input class="form-control" type="date" id="date" [(ngModel)]="goDate" (change)="gotoDate()">
+</div>
 <p-fullCalendar #fc [events]="events" [options]="options"></p-fullCalendar>
+
+
