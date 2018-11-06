@@ -3,6 +3,7 @@ import { MemberService } from '../../member.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EmailValidators } from 'src/app/shared/validators/email';
+import { MetaService } from '../../../services/meta.service'
 
 // By GJK
 @Component({
@@ -19,11 +20,13 @@ export class MemberAddComponent implements OnInit {
   constructor(
     private memberService: MemberService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private meta:MetaService
   ) { }
 
   ngOnInit() {
     this.addMemberFunction = this.addMember.bind(this);
+    this.meta.setTitle('Ajouter un membre');
     this.addMemberForm = this.fb.group({
       'firstname': this.fb.control('', [Validators.required, Validators.minLength(2)]),
       'lastname': this.fb.control('', [Validators.required, Validators.minLength(2)]),

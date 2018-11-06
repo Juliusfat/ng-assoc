@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MemberService } from '../../member.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Member } from '../../member.model';
+import { MetaService } from '../../../services/meta.service'
 
 // By GJK
 @Component({
@@ -15,13 +16,18 @@ export class MemberEditComponent implements OnInit {
   public updateMemberFunction : Function;
   public deleteMemberFunction : Function;
 
-  constructor(private memberService : MemberService, private route : ActivatedRoute, private router : Router) { }
+  constructor(
+    private memberService : MemberService, 
+    private route : ActivatedRoute, 
+    private router : Router,
+    private meta: MetaService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params['id']; // Get ID from URL.
       this.memberService.getMemberById(this.id).subscribe(member => {
         this.member = member;
+        this.meta.setTitle(`Édition de la fiche de ${this.member.firstname} ${this.member.lastname}`)
         this.updateMemberFunction = this.updateMember.bind(this);
         this.deleteMemberFunction = this.deleteMember.bind(this, this.id);
       });

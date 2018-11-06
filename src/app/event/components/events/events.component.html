@@ -1,17 +1,18 @@
 <div class="container">
   <h2 class="text-center">Liste des évenements</h2>
-  <div class="liste">
-      <a routerLink="/events/calendar">Voir le calendrier</a>
-  <ul>
-    <li *ngFor="let event of events">
+  <div class="liste">  
+  <ul class="list-group">
+    <li *ngFor="let event of events" class="list-group-item d-flex justify-content-between pb-0 align-items-center">
       <h3 style='font-size: 16px'>{{ event.title }}</h3>
       <p>
-        <a class="btn btn-success" [routerLink]="[event.id]">Détail</a>
+        <a class="btn btn-success" [routerLink]="[event.id]">Détails</a>
         <a class="btn btn-warning" [routerLink]="['/events', event.id, 'edit']">Modifier</a>        
       </p>
     </li>
   </ul>
-  
-  <a routerLink="/events/add">Ajouter un évenement</a>
+  <div>
+    <a class='btn btn-link mt-2' routerLink="/events/add">Ajouter un évenement</a>
+    <a class='btn btn-link mt-2' routerLink="/events/calendar">Voir le calendrier</a>
+  </div>
 </div>
 </div>

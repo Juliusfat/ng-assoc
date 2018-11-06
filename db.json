@@ -124,7 +124,7 @@
       "capacity": 4,
       "location": "594 Oceanview Avenue, Bergoo, Wyoming, 8392",
       "date": "2018-10-31T18:20",
-      "duration": 3
+      "duration": 2
     },
     {
       "title": "Event n° 2",
@@ -158,7 +158,7 @@
       ],
       "capacity": 3,
       "location": "734 Quay Street, Westerville, Colorado, 5467",
-      "date": "2019-01-06T03:26:09",
+      "date": "2019-01-08T02:26:09.000Z",
       "duration": 3
     },
     {
@@ -211,7 +211,7 @@
       ],
       "capacity": 16,
       "location": "59000 Lille",
-      "date": "2019-01-03T09:30",
+      "date": "2019-01-11T08:30:00.000Z",
       "duration": 2
     },
     {
@@ -246,7 +246,7 @@
       "participants": [],
       "capacity": 10,
       "location": "333 Creamer Street, Northridge, Florida, 632",
-      "date": "2019-03-14T06:44:51",
+      "date": "2019-03-05T06:44:51+01:00",
       "duration": 1
     },
     {

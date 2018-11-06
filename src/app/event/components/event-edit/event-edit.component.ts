@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DateValidators } from 'src/app/shared/validators/date';
-import { Subscription } from 'rxjs';
+import { MetaService } from 'src/app/core/services/meta.service';
 
 @Component({
   selector: 'app-event-edit',
@@ -23,7 +23,8 @@ export class EventEditComponent implements OnInit {
   constructor(
     private eventService : EventService, 
     private route:ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private meta:MetaService
   ) { }
 
   ngOnInit() {    
@@ -41,6 +42,7 @@ export class EventEditComponent implements OnInit {
       switchMap(() => this.eventService.getEventById(this.id))
     ).subscribe((event:Event) => {
       this.event = event;
+      this.meta.setTitle(`Édition de l'évènement ${event.title}`)
       let { id, participants, ...props } = event;
       for (let prop in props) {
         this.form.get(prop).setValue(event[prop])

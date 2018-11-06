@@ -168,9 +168,7 @@ export class MemberService implements CanActivate {
    * Returns false and redirect is the user not logged in. Return true in case she/he is.
    * @returns boolean
    */
-  canActivate(): boolean {
-    // for developement purpope...
-    return true;
+  canActivate(): boolean {    
     let isLoggedIn = this.currentUser.value ? true : false;
     if (!isLoggedIn) {
       this.router.navigate(['/login'])      

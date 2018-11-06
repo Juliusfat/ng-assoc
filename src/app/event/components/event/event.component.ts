@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { Event } from '../../event.model';
 import { EventService } from '../../event.service';
 import { Member } from '../../../core/member/member.model';
+import { MetaService } from '../../../core/services/meta.service';
 
 // by Guillaume
 
@@ -15,7 +16,11 @@ import { Member } from '../../../core/member/member.model';
 })
 export class EventComponent implements OnInit {
   
-  constructor(private route:ActivatedRoute, private eventservice:EventService) { }
+  constructor(
+    private route:ActivatedRoute, 
+    private eventservice:EventService,
+    private meta:MetaService
+  ) { }
 
   event$:Observable<Event>;  
   error:string;
@@ -28,6 +33,9 @@ export class EventComponent implements OnInit {
       tap((params) => this.id = params['id']),
       // subscribe the obserable returned by the service function
       switchMap(() => this.eventservice.getEventById(this.id)),
+      tap((event:Event) => {        
+        this.meta.setTitle(`Détails concernant l'évènement ${event.title}`)
+      }),
       // In case of error, assigning a message error and returning an observable of the error
       catchError((err) => {        
         this.error = `Une erreur est survenue lors de la récupération de l'event portant l'ID ${this.id}`                
