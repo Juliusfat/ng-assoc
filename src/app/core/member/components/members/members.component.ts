@@ -49,26 +49,4 @@ export class MembersComponent implements OnInit {
     this.deleteMemberFunction = this.deleteMember.bind(this, id);
   }
 
-  /**
-   * Toggle Admin role of the member checking the ID.
-   * @param id 
-   */
-  toggleAdmin(member : Member) {
-    this.memberService.toggleAdmin(member.id, member.role.indexOf(Role.ADMIN) === -1 ? false : true).subscribe(member => {
-      if(member) {
-        this.members = this.memberService.getMembers().pipe(finalize( () => this.isLoaded = true));
-      } else {
-        console.log("ERROR : mise à jour du membre échouée.");
-      }
-    });
-  }
-
-  /**
-   * Return Bootstrap active class if the member is Admin.
-   * @param { Member } member 
-   */
-  isActiveClass(member : Member) : string {
-    return member.role.indexOf(Role.ADMIN) === -1 ? '' : 'active';
-  }
-
 }

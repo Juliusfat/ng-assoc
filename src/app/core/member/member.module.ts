@@ -10,6 +10,8 @@ import { MemberLoginComponent } from './components/member-login/member-login.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from '../modal/modal.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ToggleButtonModule } from "primeng/togglebutton";
+import { MemberRoleComponent } from './components/member-role/member-role.component';
 
 @NgModule({
   imports: [
@@ -17,7 +19,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    ToggleButtonModule
   ],  
   declarations: [
     MembersComponent, 
@@ -25,7 +28,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     MemberAddComponent, 
     MemberEditComponent, 
     MemberLoginComponent,
-    ModalComponent
+    ModalComponent,
+    MemberRoleComponent
   ],
   providers: [MemberService]
 })
