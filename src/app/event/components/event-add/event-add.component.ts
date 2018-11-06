@@ -38,8 +38,10 @@ export class EventAddComponent implements OnInit {
       location: new FormControl('', [Validators.required, Validators.minLength(5)])      
     });
 
-    this.route.queryParams.subscribe(params => {      
-      this.form.get('date').setValue(`${params['date']}T08:00`);  
+    this.route.queryParams.subscribe(params => { 
+      if (params['date']) {
+        this.form.get('date').setValue(`${params['date']}T08:00`);  
+      }
     })
 
   }
