@@ -1,5 +1,5 @@
 <h2 class="text-center">Modifier un évenement</h2>
-<form (ngSubmit)='handleForm()' action="" [formGroup]='form'>
+<form (ngSubmit)='openUpdateDialog()' action="" [formGroup]='form'>
   <div class="form-group">
     <label for="title">Intitulé de l'évènement</label>
     <input [appTrimDelay]='500' [appTrim]='form.get("title")' class="form-control" type="text" id="title" formControlName='title'>
@@ -27,4 +27,4 @@
   <input class="btn btn-info" [disabled]='form.invalid' type="submit" value="Éditer l'évènement">
 </form>
 
-<button class='mt-4 btn btn-danger' (click)='deleteEvent()'>Supprimer l'évènement</button>
+<button class="mt-4 btn btn-danger" (click)="openDeleteDialog()">Supprimer l'évènement</button>
