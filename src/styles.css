@@ -1,3 +1,7 @@
+body {
+    margin-bottom: 3rem;
+}
+
 button:not([disabled]), 
 input[type=submit]:not([disabled]) {
     cursor: pointer;
