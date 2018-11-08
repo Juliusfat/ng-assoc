@@ -14,11 +14,8 @@
   </form>
 
   <div>
-    <button class="btn btn-primary" data-toggle="modal" data-target="#updateModal">Modifier</button>
-    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Supprimer</button>
+    <button class="btn btn-info" (click)="openUpdateDialog()">Modifier</button>
+    <button class="btn btn-danger" (click)="openDeleteDialog()">Supprimer</button>
     <a class="btn btn-link" routerLink="/members">Retour</a>
   </div>
 </div>
-
-<app-modal [confirmFunction]="updateMemberFunction" typeModal="update"></app-modal>
-<app-modal [confirmFunction]="deleteMemberFunction" typeModal="delete"></app-modal>
