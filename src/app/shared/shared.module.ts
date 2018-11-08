@@ -2,18 +2,23 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TrimDirective } from './directives/trim.directive';
 import { ShowPasswordFieldDirective } from './directives/show-password-field.directive';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { MatDialogModule } from '@angular/material';
 
 @NgModule({
   imports: [
-    RouterModule
+    RouterModule,
+    MatDialogModule
   ],
   exports: [
     TrimDirective,
-    ShowPasswordFieldDirective
+    ShowPasswordFieldDirective,
+    ConfirmDialogComponent
   ],
   declarations: [
     TrimDirective,
-    ShowPasswordFieldDirective
+    ShowPasswordFieldDirective,
+    ConfirmDialogComponent
   ]
 })
 export class SharedModule { }
