@@ -2,7 +2,7 @@
 <div class="container">
   <h2>Ajout d'un membre</h2>
 
-  <form [formGroup]="addMemberForm" (ngSubmit)="addMember()">
+  <form [formGroup]="addMemberForm" (ngSubmit)="openAddDialog()">
     <div class="form-group">
       <label for="firstname">Prénom : </label>
       <input class="form-control" type="text" name="firstname" id="firstname" formControlName="firstname" required/>
@@ -44,11 +44,8 @@
     </div>
 
     <div>
-      <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Ajouter</button> -->
       <input class='btn btn-info' [disabled]='addMemberForm.invalid' type="submit" value="Ajouter le membre"/>
       <a class="btn btn-link" routerLink="/members">Retour</a>
     </div>
   </form>
 </div>
-
-<app-modal [confirmFunction]="addMemberFunction" typeModal="add"></app-modal>

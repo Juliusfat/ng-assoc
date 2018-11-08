@@ -3,7 +3,9 @@ import { MemberService } from '../../member.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EmailValidators } from 'src/app/shared/validators/email';
-import { MetaService } from '../../../services/meta.service'
+import { MetaService } from '../../../services/meta.service';
+import { MatDialog } from '@angular/material';
+import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 
 // By GJK
 @Component({
@@ -13,7 +15,9 @@ import { MetaService } from '../../../services/meta.service'
 })
 export class MemberAddComponent implements OnInit {
 
-  public addMemberFunction: Function;
+  private addDialogTitle: string;
+  private addDialogContent: string;
+  private addMemberFunction: Function;
 
   addMemberForm: FormGroup;
 
@@ -21,20 +25,25 @@ export class MemberAddComponent implements OnInit {
     private memberService: MemberService,
     private router: Router,
     private fb: FormBuilder,
-    private meta:MetaService
+    private meta: MetaService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
+    // Init dialog datas
+    this.addDialogTitle = "Ajouter un membre";
+    this.addDialogContent = "Êtes-vous sûr de vouloir ajouter le membre ?";
     this.addMemberFunction = this.addMember.bind(this);
+
     this.meta.setTitle('Ajouter un membre');
+
     this.addMemberForm = this.fb.group({
       'firstname': this.fb.control('', [Validators.required, Validators.minLength(2)]),
       'lastname': this.fb.control('', [Validators.required, Validators.minLength(2)]),
-      'email': this.fb.control('', [
-        Validators.required,
-        Validators.email],[
-        EmailValidators.isEmailUnique(this.memberService)
-      ])
+      'email': this.fb.control('',
+        [Validators.required, Validators.email],
+        [EmailValidators.isEmailUnique(this.memberService)]
+      )
     });
   }
 
@@ -59,6 +68,19 @@ export class MemberAddComponent implements OnInit {
     this.memberService.addMember(formValue.firstname, formValue.lastname, formValue.email).then(
       () => this.router.navigate(['/members'])
     );
+  }
+
+  /**
+   * Open a modal dialog to ask confirmation to add a member.
+   */
+  openAddDialog() {
+    this.dialog.open(ConfirmDialogComponent, {
+      data: {
+        title: this.addDialogTitle,
+        content: this.addDialogContent,
+        confirmFunction: this.addMemberFunction
+      }
+    });
   }
 
 }

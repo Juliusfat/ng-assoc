@@ -1,0 +1,9 @@
+<!-- By GJK -->
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  <p [innerHTML]="data.content"></p>
+</div>
+<div mat-dialog-actions>
+  <button class="mat-button btn" mat-button (click)="onCancel()">Annuler</button>
+  <button class="mat-button btn btn-info" mat-button (click)="onConfirm()" [mat-dialog-close]="true" cdkFocusInitial>Confirmer</button>
+</div>

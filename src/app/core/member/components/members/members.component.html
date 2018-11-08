@@ -16,12 +16,10 @@
       <div class="col-4">
         <a class="btn btn-info" [routerLink]="[member.id]">Détail</a>
         <a class="btn btn-warning" [routerLink]="[member.id, 'edit']">Modifier</a>
-        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" (click)="setDeleteFunctionWithId(member.id)">Supprimer</button>
+        <button class="btn btn-danger" (click)="openDeleteDialog(member.id)">Supprimer</button>
       </div>
     </li>
   </ul>
 
   <a class="btn btn-link" routerLink="/members/add">Ajouter un membre</a>
-
-  <app-modal [confirmFunction]="deleteMemberFunction" typeModal="delete"></app-modal>
 </div>
