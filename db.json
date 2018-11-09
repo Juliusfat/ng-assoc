@@ -207,6 +207,14 @@
           "email": "elsieshields@centice.com",
           "password": null,
           "role": []
+        },
+        {
+          "id": "b259e392-ccca-438a-ba95-e68c97c733d7",
+          "firstname": "Lauren",
+          "lastname": "Barry",
+          "email": "laurenbarry@centice.com",
+          "password": null,
+          "role": []
         }
       ],
       "capacity": 16,
@@ -243,7 +251,16 @@
     {
       "title": "Event n° 8",
       "id": "ad148b0b-6e83-4b5e-8c30-be2f7fe21840",
-      "participants": [],
+      "participants": [
+        {
+          "id": "7d7e4c2d-704e-4dc4-a709-b3f9abf43351",
+          "firstname": "Elsie",
+          "lastname": "Shields",
+          "email": "elsieshields@centice.com",
+          "password": null,
+          "role": []
+        }
+      ],
       "capacity": 10,
       "location": "333 Creamer Street, Northridge, Florida, 632",
       "date": "2019-03-05T06:44:51+01:00",
@@ -322,6 +339,22 @@
           "firstname": "Colon",
           "lastname": "Blackwell",
           "email": "colonblackwell@centice.com",
+          "password": null,
+          "role": []
+        },
+        {
+          "id": "7d7e4c2d-704e-4dc4-a709-b3f9abf43351",
+          "firstname": "Elsie",
+          "lastname": "Shields",
+          "email": "elsieshields@centice.com",
+          "password": null,
+          "role": []
+        },
+        {
+          "id": "83a27510-0570-450e-b123-0816d0207f52",
+          "firstname": "Latoya",
+          "lastname": "Hart",
+          "email": "latoyahart@centice.com",
           "password": null,
           "role": []
         }
