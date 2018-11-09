@@ -2,15 +2,50 @@
 <div class="container">
   <h2>Ajout d'un membre</h2>
 
-  <div>
-    <div class="form-group"><label for="firstname">Prénom : </label><input class="form-control" type="text" name="firstname" id="firstname" [(ngModel)]="firstname" required></div>
-    <div class="form-group"><label for="lastname">Nom : </label><input class="form-control" type="text" name="lastname" id="lastname" [(ngModel)]="lastname" required></div>
-    <div class="form-group"><label for="email">E-mail : </label><input class="form-control" type="email" name="email" id="email" [(ngModel)]="email" required></div>
-  </div>
-  <div>
-      <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Ajouter</button>
-      <a class="btn btn-link" routerLink="/members">Retour</a>
-  </div>
-</div>
+  <form [formGroup]="addMemberForm" (ngSubmit)="openAddDialog()">
+    <div class="form-group">
+      <label for="firstname">Prénom : </label>
+      <input class="form-control" type="text" name="firstname" id="firstname" formControlName="firstname" required/>
+      <div class="alert alert-warning mt-1" *ngIf="firstname.invalid && firstname.touched">
+        <div *ngIf="firstname.errors.required">
+          Le prénom est obligatoire.
+        </div>
+        <div *ngIf="firstname.errors.minlength">
+          Le prénom doit être composé de deux lettres minimum.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="lastname">Nom : </label>
+      <input class="form-control" type="text" name="lastname" id="lastname" formControlName="lastname" required/>
+      <div class="alert alert-warning mt-1" *ngIf="lastname.invalid && lastname.touched">
+        <div *ngIf="lastname.errors.required">
+          Le nom de famille est obligatoire.
+        </div>
+        <div *ngIf="lastname.errors.minlength">
+          Le nom de famille doit être composé de deux lettres minimum.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">E-mail : </label>
+      <input class="form-control" type="email" name="email" id="email" formControlName="email" required/>
+      <div class="alert alert-warning mt-1" *ngIf="email.invalid && email.touched">
+        <div *ngIf="email.errors.required">
+          Une adresse e-mail est obligatoire.
+        </div>
+        <div *ngIf="email.errors.email">
+          L'adresse e-mail est invalide.
+        </div>
+        <div *ngIf="email.errors.emailExists">
+          L'adresse e-mail existe déjà.
+        </div>
+      </div>
+    </div>
 
-<app-modal [confirmFunction]="addMemberFunction" typeModal="add"></app-modal>
+    <div>
+      <input class='btn btn-info' [disabled]='addMemberForm.invalid' type="submit" value="Ajouter le membre"/>
+      <a class="btn btn-link" routerLink="/members">Retour</a>
+    </div>
+  </form>
+</div>

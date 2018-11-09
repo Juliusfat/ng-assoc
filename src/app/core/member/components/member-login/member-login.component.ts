@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MemberService } from '../../member.service';
 import { Router } from '@angular/router';
+import { MetaService } from '../../../services/meta.service'
 
 // by Guillaume
 
@@ -14,7 +15,11 @@ export class MemberLoginComponent implements OnInit {
 
   form:FormGroup;
   error:string;
-  constructor(private membersservice:MemberService, private router:Router) { }
+  constructor(
+    private membersservice:MemberService, 
+    private router:Router,
+    private meta:MetaService  
+  ) { }
 
   ngOnInit() {
     // Initialization of the login form
@@ -22,6 +27,7 @@ export class MemberLoginComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)])
     })
+    this.meta.setTitle(`Login`)
   }
 
   handleForm(): void {

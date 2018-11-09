@@ -9,6 +9,12 @@ export class StorageService {
 
   constructor() { }
 
+  /**
+   * Save info in localstorage
+   * @param string key 
+   * @param any data
+   * @returns Promise<any>
+   */
   save(key:string, data:any): Promise<any> {
     return new Promise((resolve, reject) => {
       let string = this.sanitize(data);
@@ -21,6 +27,11 @@ export class StorageService {
     });
   }
 
+  /**
+   * Get data from localstorage for a given key
+   * @param string key 
+   * @returns Promise<any>
+   */
   get(key:string): Promise<any> {
     return new Promise((resolve, reject) => {
       let value = window.localStorage.getItem(key);      
@@ -32,6 +43,11 @@ export class StorageService {
     });    
   }
 
+  /**
+   * Delete data from localstorage for a given key
+   * @param key 
+   * @returns Promise<void>
+   */
   clear(key:string): Promise<void> {
     return new Promise(resolve => {
       window.localStorage.removeItem(key)
@@ -39,6 +55,10 @@ export class StorageService {
     })
   }
 
+  /**
+   * Clear all the localstorage
+   * @returns Promise<void>
+   */
   clearStorage (): Promise<void> {
     return new Promise((resolve) => {
       window.localStorage.clear();
@@ -46,6 +66,10 @@ export class StorageService {
     })
   }
 
+  /**
+   * Private method that parses data return parsed json
+   * @param string data 
+   */
   private parse (data:string): { [prop:string]:any } | string {
     try {
       return JSON.parse(data)
@@ -54,6 +78,11 @@ export class StorageService {
     }
   }
 
+  /**
+   * Private method that return a string value ready to be
+   * store in the localstorage
+   * @param any data 
+   */
   private sanitize (data:any): string {
     try {
       return JSON.stringify(data);

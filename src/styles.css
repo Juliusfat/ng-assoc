@@ -1,3 +1,7 @@
+body {
+    margin-bottom: 3rem;
+}
+
 button:not([disabled]), 
 input[type=submit]:not([disabled]) {
     cursor: pointer;
@@ -21,4 +25,8 @@ input[type=submit][disabled] {
 
 .liste {
     padding : 20px 0;
+}
+
+.nav-link.active {    
+    background-color: var( --light);
 }

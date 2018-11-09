@@ -1,5 +1,5 @@
 <h2 class='my-3'>Ajouter un évènement</h2>
-<form class='my-3' (ngSubmit)='handleForm()' action="" [formGroup]='form'>
+<form class='my-3' (ngSubmit)='openAddDialog()' action="" [formGroup]='form'>
     <div class="form-group">
       <label for="title">Intitulé de l'évènement</label>
       <input [appTrimDelay]='inputDelay' [appTrim]='form.get("title")' class='form-control' type="text" id="title" formControlName='title'>

@@ -9,6 +9,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Event } from '../../event.model'
 import { EventService } from '../../event.service'
 import { DateValidators } from 'src/app/shared/validators/date';
+import { MetaService } from 'src/app/core/services/meta.service';
+import { MatDialog } from '@angular/material';
+import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 
 // by Guillaume
 
@@ -22,10 +25,16 @@ export class EventAddComponent implements OnInit {
   form:FormGroup
   inputDelay:number = 400
 
+  addDialogTitle: string;
+  addDialogContent: string;
+  addEventFunction: Function;
+
   constructor(
     private eventservice:EventService,
     private router:Router,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private meta:MetaService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() { 
@@ -44,6 +53,12 @@ export class EventAddComponent implements OnInit {
       }
     })
 
+    this.meta.setTitle('Ajouter un évènement');
+
+    // Init dialog datas
+    this.addDialogTitle = "Ajouter un évènement";
+    this.addDialogContent = "Êtes-vous sûr de vouloir ajouter l'évènement ?";
+    this.addEventFunction = this.handleForm.bind(this);
   }
 
   /**
@@ -54,10 +69,23 @@ export class EventAddComponent implements OnInit {
       const event:Event = { ...this.form.value, participants:[], id:uuid() }      
       this.eventservice.addEvent(event).subscribe((response: Event) => {
         // Reset form and redirect to the event details page.
-        this.form.reset()
-        this.router.navigate(['/events', response.id])
+        this.form.reset();
+        this.router.navigate(['/events', response.id]);
       })
       this.form.reset();
     }
+  }
+
+  /**
+   * Open a modal dialog to ask confirmation to add an event.
+   */
+  openAddDialog() {
+    this.dialog.open(ConfirmDialogComponent, {
+      data: {
+        title: this.addDialogTitle,
+        content: this.addDialogContent,
+        confirmFunction: this.addEventFunction
+      }
+    });
   }
 }
