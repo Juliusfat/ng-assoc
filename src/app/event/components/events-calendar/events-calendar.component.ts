@@ -1,4 +1,4 @@
-//by Cyrille
+// by Cyrille
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventService } from '../../event.service';
@@ -33,37 +33,45 @@ export class EventsCalendarComponent implements OnInit {
     this.meta.setTitle('Calendrier des évènements')
 
     /**
-     * create an array to define all the options of the calendar  
+     * create an array to define all the options of the calendar
      */
     this.options = {
       defaultDate: '2019-01-01',
       header: {
-        left: 'prev,next',
+        left: 'prev,next,today',
         center: 'title',
-        right: 'month,agendaWeek,agendaDay'
+        right: 'month,agendaWeek,agendaDay,listMonth'
       },
       locale: 'fr',
       editable: true,
       droppable: true,
+      buttonText: {
+        today: 'Maintenant',
+        month: 'Mois',
+        week: 'Semaine',
+        day: 'Jour',
+        list: 'liste',
+        listMonth : 'Events du mois'
+      },
 
       /**
        * drag and drop function :move an event in the calendar and update the date of the event in the database
        */
 
       eventDrop: (obj) => {
-        const eventDate : string = new Date(Date.parse(obj.event.start)).toISOString();
+        const eventDate: string = new Date(Date.parse(obj.event.start)).toISOString();
         const currentId = obj.event.def.publicId;
-        this.eventService.changeEventDate(currentId,eventDate).subscribe((event:Event) => {
+        this.eventService.changeEventDate(currentId, eventDate).subscribe((event: Event) => {
           this.route.navigate(['/events', event.id]);
-      })
+        });
       },
       /**
        * limit the starting date of the calendar at the current date
        */
-      validRange:(nowDate)=> {
+      validRange: (nowDate) => {
         return {
-        start: nowDate
-        }
+          start: nowDate
+        };
       },
 
       /**
@@ -73,7 +81,7 @@ export class EventsCalendarComponent implements OnInit {
         this.route.navigate(['/events', obj.event.id]);
       },
       dateClick: (obj) => {
-        this.route.navigate(['/events/add'], { queryParams: { date:obj.dateStr } })
+        this.route.navigate(['/events/add'], { queryParams: { date: obj.dateStr } });
       }
     };
   }
@@ -86,13 +94,13 @@ export class EventsCalendarComponent implements OnInit {
         events => {
           this.events = events;
         }
-      )
+      );
   }
 
   /**
-   * use the child calendar component and allow access to a specific date 
+   * use the child calendar component and allow access to a specific date
    */
   gotoDate() {
     this.fc.getCalendar().gotoDate(this.goDate);
-}
+  }
 }
